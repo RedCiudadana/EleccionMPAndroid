@@ -11,10 +11,11 @@ import eleccionmp.redciudadana.org.eleccionmp.R
 
 /**
  * Created by javier on 1/17/18.
+ * Main menu fragment to show main features of this app
  */
 
 class MainMenuFragment: Fragment() {
-    var mainView: MainView? = null
+    private var mainView: MainView? = null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mainView = activity as MainView
         val view: View? = inflater?.inflate(R.layout.fragment_main_menu, container, false);

@@ -15,10 +15,11 @@ interface MainView {
     fun showMainMenu();
 }
 
-class MainActivity : AppCompatActivity(), MainView {
+private const val TAG: String = "MainActivity"
 
-    private val TAG: String = "MainActivity"
+class MainActivity : AppCompatActivity(), MainView {
     private val api: Api = Api();
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
