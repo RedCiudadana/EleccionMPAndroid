@@ -11,7 +11,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+interface MainView {
+    fun showMainMenu();
+}
+
+class MainActivity : AppCompatActivity(), MainView {
 
     private val TAG: String = "MainActivity"
     private val api: Api = Api();
@@ -39,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         showMainMenu();
     }
 
-    fun showMainMenu() {
+    override fun showMainMenu() {
         val fragment = MainMenuFragment()
         changeFragment(fragment, true);
     }
