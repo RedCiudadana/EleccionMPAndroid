@@ -41,16 +41,14 @@ class MainActivity : AppCompatActivity(), MainView {
             }
 
         })
-    }
-
-    override fun onResume() {
-        super.onResume()
-        showMainMenu();
+        if (savedInstanceState == null) {
+            showMainMenu()
+        }
     }
 
     override fun showMainMenu() {
         val fragment = MainMenuFragment()
-        changeFragment(fragment, true);
+        changeFragment(fragment, false);
     }
 
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean) {

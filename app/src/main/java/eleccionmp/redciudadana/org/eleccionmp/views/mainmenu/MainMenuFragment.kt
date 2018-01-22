@@ -18,7 +18,11 @@ class MainMenuFragment: Fragment() {
     private var mainView: MainView? = null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mainView = activity as MainView
-        val view = inflater?.inflate(R.layout.fragment_main_menu, container, false)
+        return inflater?.inflate(R.layout.fragment_main_menu, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         option_candidates.setOnClickListener {
             mainView?.showCandidates()
         }
@@ -31,6 +35,5 @@ class MainMenuFragment: Fragment() {
         option_news.setOnClickListener {
             mainView?.showNews()
         }
-        return view
     }
 }
