@@ -11,10 +11,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+interface MainView {
+    fun showMainMenu()
+    fun showCandidates()
+    fun showCommission()
+    fun showElectionProcess()
+    fun showNews()
+}
 
-    private val TAG: String = "MainActivity"
+private const val TAG: String = "MainActivity"
+
+class MainActivity : AppCompatActivity(), MainView {
     private val api: Api = Api();
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,16 +41,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        if (savedInstanceState == null) {
+            showMainMenu()
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        showMainMenu();
-    }
-
-    fun showMainMenu() {
+    override fun showMainMenu() {
         val fragment = MainMenuFragment()
-        changeFragment(fragment, true);
+        changeFragment(fragment, false);
     }
 
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean) {
@@ -53,5 +60,21 @@ class MainActivity : AppCompatActivity() {
         }
         transaction.commit()
 
+    }
+
+    override fun showCandidates() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCommission() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showElectionProcess() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showNews() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
