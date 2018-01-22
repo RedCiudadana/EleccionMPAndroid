@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Eleccion MP</string>
+    <string name="mainmenu.candidates">Candidatos</string>
+    <string name="mainmenu.commission">Comisión de postulación</string>
+    <string name="mainmenu.election_process">Proceso de elección</string>
+    <string name="mainmenu.news">Últimas noticas</string>
 </resources>
