@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
+import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 /**
  * Created by javier on 1/17/18.
@@ -18,8 +18,19 @@ class MainMenuFragment: Fragment() {
     private var mainView: MainView? = null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mainView = activity as MainView
-        val view: View? = inflater?.inflate(R.layout.fragment_main_menu, container, false)
-//        val option1 = view?.findViewById<View>(R.id.option_candidates)
+        val view = inflater?.inflate(R.layout.fragment_main_menu, container, false)
+        option_candidates.setOnClickListener {
+            mainView?.showCandidates()
+        }
+        option_commission.setOnClickListener {
+            mainView?.showCommission()
+        }
+        option_election_process.setOnClickListener {
+            mainView?.showElectionProcess()
+        }
+        option_news.setOnClickListener {
+            mainView?.showNews()
+        }
         return view
     }
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         style="@style/MainMenu.item"
-        android:id="@+id/option.candidates">
+        android:id="@+id/option_candidates">
         <ImageView
             style="@style/MainMenu.icon"
             android:src="@drawable/candidatos" />
@@ -15,7 +15,7 @@
     </LinearLayout>
     <LinearLayout
         style="@style/MainMenu.item"
-        android:id="@+id/option.commission">
+        android:id="@+id/option_commission">
         <ImageView
             style="@style/MainMenu.icon"
             android:src="@drawable/commission"
@@ -26,7 +26,7 @@
     </LinearLayout>
     <LinearLayout
         style="@style/MainMenu.item"
-        android:id="@+id/option.election_process">
+        android:id="@+id/option_election_process">
         <ImageView
             style="@style/MainMenu.icon"
             android:src="@drawable/election"
@@ -37,7 +37,7 @@
     </LinearLayout>
     <LinearLayout
         style="@style/MainMenu.item"
-        android:id="@+id/option.news">
+        android:id="@+id/option_news">
         <ImageView
             style="@style/MainMenu.icon"
             android:src="@drawable/news"/>

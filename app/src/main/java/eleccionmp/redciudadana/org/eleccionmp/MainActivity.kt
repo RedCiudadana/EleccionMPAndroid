@@ -12,7 +12,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 interface MainView {
-    fun showMainMenu();
+    fun showMainMenu()
+    fun showCandidates()
+    fun showCommission()
+    fun showElectionProcess()
+    fun showNews()
 }
 
 private const val TAG: String = "MainActivity"
@@ -58,5 +62,21 @@ class MainActivity : AppCompatActivity(), MainView {
         }
         transaction.commit()
 
+    }
+
+    override fun showCandidates() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCommission() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showElectionProcess() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showNews() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
