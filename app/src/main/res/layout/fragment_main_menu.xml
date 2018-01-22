@@ -29,7 +29,7 @@
         android:id="@+id/option.election_process">
         <ImageView
             style="@style/MainMenu.icon"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/election"
             />
         <TextView
             style="@style/MainMenu.text"
@@ -40,7 +40,7 @@
         android:id="@+id/option.news">
         <ImageView
             style="@style/MainMenu.icon"
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/news"/>
         <TextView
             android:text="@string/mainmenu.news"
             style="@style/MainMenu.text"/>

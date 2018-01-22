@@ -19,10 +19,7 @@ class MainMenuFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mainView = activity as MainView
         val view: View? = inflater?.inflate(R.layout.fragment_main_menu, container, false)
-        val option1 = view?.findViewById<View>(R.id.option_candidates)
-        option1?.setOnClickListener {
-            Toast.makeText(context, "Me hizo click", Toast.LENGTH_SHORT).show()
-        }
+//        val option1 = view?.findViewById<View>(R.id.option_candidates)
         return view
     }
 }
