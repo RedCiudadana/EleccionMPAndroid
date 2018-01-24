@@ -24,6 +24,7 @@ interface MainView {
     fun showCommission()
     fun showElectionProcess()
     fun showNews()
+    fun showContact()
 }
 
 private const val TAG: String = "MainActivity"
@@ -35,19 +36,7 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        mDrawerToggle = object: ActionBarDrawerToggle(
-                this,
-                drawer_layout,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {}
-
-        drawer_layout.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
-        mDrawerToggle?.syncState()
-//        mDrawerToggle?.isDrawerIndicatorEnabled = true
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
+        initializeDrawer()
 
         // API call test
         val callResponse = api.api.getProfiles()
@@ -66,6 +55,49 @@ class MainActivity : AppCompatActivity(), MainView {
         })
         if (savedInstanceState == null) {
             showMainMenu()
+        }
+    }
+
+    private fun initializeDrawer() {
+        setSupportActionBar(toolbar)
+        mDrawerToggle = object: ActionBarDrawerToggle(
+                this,
+                drawer_layout,
+                R.string.drawer_open,
+                R.string.drawer_close
+        ) {}
+
+        drawer_layout.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
+
+        mDrawerToggle?.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+        setDrawerNavigationListener()
+    }
+
+    private fun setDrawerNavigationListener() {
+        drawer_navigation.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.option_candidates -> {
+                    showCandidates()
+                }
+                R.id.option_commission -> {
+                    showCommission()
+                }
+                R.id.option_news -> {
+                    showNews()
+                }
+                R.id.option_election_process -> {
+                    showElectionProcess()
+                }
+                R.id.option_contact -> {
+                    showContact()
+                }
+                else -> {
+                    return@setNavigationItemSelectedListener false
+                }
+            }
+            return@setNavigationItemSelectedListener true
         }
     }
 
@@ -102,7 +134,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     }
 
-    override fun showCandidates() {
+    override fun showCandidates() : Unit{
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -115,6 +147,10 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showNews() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showContact() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
