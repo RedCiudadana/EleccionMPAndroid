@@ -3,4 +3,6 @@
     <color name="colorPrimary">#ffc80e</color>
     <color name="colorPrimaryDark">#ffc80e</color>
     <color name="colorAccent">#1b2b3a</color>
+    <color name="white">#ffffff</color>
+    <color name="menu_item_background">#3ebdff</color>
 </resources>
