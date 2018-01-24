@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import eleccionmp.redciudadana.org.eleccionmp.http.Api
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
@@ -35,25 +36,17 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
         mDrawerToggle = object: ActionBarDrawerToggle(
                 this,
                 drawer_layout,
                 R.string.drawer_open,
                 R.string.drawer_close
-        ) {
-            override fun onDrawerClosed(drawerView: View?) {
-                super.onDrawerClosed(drawerView)
-            }
+        ) {}
 
-            override fun onDrawerOpened(drawerView: View?) {
-                super.onDrawerOpened(drawerView)
-
-            }
-        }
         drawer_layout.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
+        mDrawerToggle?.syncState()
+//        mDrawerToggle?.isDrawerIndicatorEnabled = true
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
         // API call test
