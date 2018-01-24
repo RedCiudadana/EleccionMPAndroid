@@ -19,13 +19,9 @@ interface IApi {
 }
 
 
-class Api {
-    val api: IApi
-    init {
-        val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build();
-        api = retrofit.create(IApi::class.java)
-    }
-}
+private val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
+
+var api = retrofit.create(IApi::class.java)

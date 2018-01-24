@@ -6,17 +6,9 @@ import android.os.PersistableBundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
-import eleccionmp.redciudadana.org.eleccionmp.http.Api
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 interface MainView {
     fun showMainMenu()
@@ -30,29 +22,12 @@ interface MainView {
 private const val TAG: String = "MainActivity"
 
 class MainActivity : AppCompatActivity(), MainView {
-    private val api: Api = Api()
     private var mDrawerToggle: ActionBarDrawerToggle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeDrawer()
-
-        // API call test
-        val callResponse = api.api.getProfiles()
-        callResponse.enqueue(object: Callback<List<Profile>> {
-            override fun onFailure(call: Call<List<Profile>>?, t: Throwable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
-                Log.d(TAG, response?.body().toString())
-                response?.body()?.map {
-                    Log.d(TAG, it.email)
-                }
-            }
-
-        })
         if (savedInstanceState == null) {
             showMainMenu()
         }
