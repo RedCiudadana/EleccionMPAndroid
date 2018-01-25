@@ -1,10 +1,5 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.abstract
 
-import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.View
-import eleccionmp.redciudadana.org.eleccionmp.utils.IPresenter
-
 /**
  * Created by javier on 1/23/18.
  */
