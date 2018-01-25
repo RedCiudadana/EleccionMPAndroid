@@ -6,11 +6,15 @@ import android.os.PersistableBundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.MenuItem
+import android.view.View
+import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
+import eleccionmp.redciudadana.org.eleccionmp.views.candidates.CandidatesFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-interface MainView {
+interface MainView: ActivityView {
     fun showMainMenu()
     fun showCandidates()
     fun showCommission()
@@ -106,11 +110,21 @@ class MainActivity : AppCompatActivity(), MainView {
             transaction.addToBackStack(null)
         }
         transaction.commit()
+        drawer_layout.closeDrawer(Gravity.START)
 
     }
 
+    override fun showLoading() {
+        progress.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        progress.visibility = View.GONE
+    }
+
     override fun showCandidates() : Unit{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val fragment = CandidatesFragment()
+        changeFragment(fragment, true)
     }
 
     override fun showCommission() {

@@ -4,7 +4,7 @@ package eleccionmp.redciudadana.org.eleccionmp.http
  * Created by javier on 1/15/18.
  */
 
-class Profile(
+data class Profile(
         val id: String?,
         val nombre: String?,
         val cargo: String?,

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProgressBar style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    android:id="@+id/progress"
+    android:padding="0dp"
+    android:layout_margin="0dp"
+    android:indeterminate="true"
+    android:visibility="visible"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -8,20 +8,15 @@ import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BaseFragment
-import eleccionmp.redciudadana.org.eleccionmp.utils.views.WithMainView
 
 /**
  * Created by javier on 1/23/18.
  * Candidates fragment
  */
 
-class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContract.Presenter>(), CandidatesContract.View, WithMainView {
+class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContract.Presenter, MainView>(), CandidatesContract.View {
 
     override var mPresenter: CandidatesContract.Presenter = CandidatesPresenter()
-
-    override fun getMainView(): MainView {
-        return activity as MainView
-    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_candidates, container, false)

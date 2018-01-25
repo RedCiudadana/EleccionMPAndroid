@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.utils.views.WithMainView
 import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 /**
@@ -15,9 +14,9 @@ import kotlinx.android.synthetic.main.fragment_main_menu.*
  * Main menu fragment to show main features of this app
  */
 
-class MainMenuFragment : Fragment(), WithMainView {
+class MainMenuFragment : Fragment() {
 
-    override fun getMainView(): MainView {
+    fun getMainView(): MainView {
         return activity as MainView
     }
 
