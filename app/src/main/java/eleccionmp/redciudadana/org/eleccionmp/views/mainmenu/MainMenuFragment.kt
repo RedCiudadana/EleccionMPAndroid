@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
+import eleccionmp.redciudadana.org.eleccionmp.utils.views.WithMainView
 import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 /**
@@ -14,26 +15,29 @@ import kotlinx.android.synthetic.main.fragment_main_menu.*
  * Main menu fragment to show main features of this app
  */
 
-class MainMenuFragment: Fragment() {
-    private var mainView: MainView? = null
+class MainMenuFragment : Fragment(), WithMainView {
+
+    override fun getMainView(): MainView {
+        return activity as MainView
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mainView = activity as MainView
         return inflater?.inflate(R.layout.fragment_main_menu, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         option_candidates.setOnClickListener {
-            mainView?.showCandidates()
+            getMainView().showCandidates()
         }
         option_commission.setOnClickListener {
-            mainView?.showCommission()
+            getMainView().showCommission()
         }
         option_election_process.setOnClickListener {
-            mainView?.showElectionProcess()
+            getMainView().showElectionProcess()
         }
         option_news.setOnClickListener {
-            mainView?.showNews()
+            getMainView().showNews()
         }
     }
 }

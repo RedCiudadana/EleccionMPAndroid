@@ -8,6 +8,7 @@ import android.view.View
  * Created by javier on 1/24/18.
  */
 
+//TODO: Add generic for activity bridging
 abstract class BaseFragment<in V: IView, T: IPresenter<V>>: Fragment(), IView {
 
     protected abstract var mPresenter: T
