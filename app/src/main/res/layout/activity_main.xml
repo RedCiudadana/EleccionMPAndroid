@@ -16,11 +16,27 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             />
-        <FrameLayout
-            android:id="@+id/main_container"
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+            <FrameLayout
+                android:id="@+id/main_container"
+                android:background="@color/main_menu_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </FrameLayout>
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_marginTop="-6dp"
+                android:layout_gravity="top"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/drawer_navigation"
