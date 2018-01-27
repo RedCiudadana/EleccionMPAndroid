@@ -23,13 +23,14 @@ class CandidatesPresenter : BasePresenter<CandidatesContract.View>(), Candidates
         val callResponse = api.getProfiles()
         callResponse.enqueue(object : Callback<List<Profile>> {
             override fun onFailure(call: Call<List<Profile>>?, t: Throwable?) {
-                mView?.showError(R.string.errors_could_not_load)
+                mView!!.showError(R.string.errors_could_not_load)
             }
 
             override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                 Log.d(TAG, response?.body().toString())
+                Log.d(TAG, "View is " + mView.toString())
                 mView?.hideLoading()
-                //TODO: show to view
+                mView!!.showCandidatesList(response!!.body())
             }
 
         })

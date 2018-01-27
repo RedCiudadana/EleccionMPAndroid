@@ -26,6 +26,7 @@ class MainMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity.setTitle(R.string.main_menu_title)
         option_candidates.setOnClickListener {
             getMainView().showCandidates()
         }

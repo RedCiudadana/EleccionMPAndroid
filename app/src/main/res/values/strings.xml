@@ -3,6 +3,7 @@
 
     <string name="errors.could_not_load">No se pudieron cargar los datos</string>
 
+    <string name="main_menu_title">Elección MP</string>
     <string name="mainmenu.candidates">Candidatos</string>
     <string name="mainmenu.commission">Comisión de postulación</string>
     <string name="mainmenu.election_process">Proceso de elección</string>

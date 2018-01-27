@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidates
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,9 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mLayoutManager = LinearLayoutManager(context)
+        candidates_list.setHasFixedSize(true)
+        candidates_list.layoutManager = mLayoutManager
         candidates_list.adapter = CandidateListAdapter(context, null)
     }
 
@@ -35,6 +39,5 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
     override fun showCandidatesList(list: List<Profile>) {
         val adapter = candidates_list.adapter as CandidateListAdapter
         adapter.candidateList = list
-        adapter.notifyDataSetChanged()
     }
 }

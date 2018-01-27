@@ -23,7 +23,14 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         get() = view.candidate_item_text
 }
 
-class CandidateListAdapter(private val context: Context, var candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
+class CandidateListAdapter(private val context: Context, candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
+
+    var candidateList: List<Profile>? = candidateList
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.candidate_list_item, parent, false)
         return ViewHolder(view)
@@ -36,7 +43,7 @@ class CandidateListAdapter(private val context: Context, var candidateList: List
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val candidate = candidateList?.get(position)
         if (holder != null && candidate != null) {
-            Picasso.with(context).load(candidate.fotoUrl).centerInside().into(holder.candidateImage)
+            Picasso.with(context).load(candidate.fotoUrl).into(holder.candidateImage)
             holder.candidateText.text = candidate.nombre
         }
     }

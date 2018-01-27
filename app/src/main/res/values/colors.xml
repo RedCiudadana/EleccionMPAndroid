@@ -6,4 +6,5 @@
     <color name="white">#ffffff</color>
     <color name="main_menu_background">#1b2b3a</color>
     <color name="menu_item_background">#3ebdff</color>
+    <color name="black">#000</color>
 </resources>
