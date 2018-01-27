@@ -13,4 +13,8 @@
     <string name="menu.election">Proceso de elección</string>
     <string name="menu.news">Noticias</string>
     <string name="menu.contact">Contacto</string>
+
+    <!-- Candidates list -->
+    <string name="candidates.title">Candidatos</string>
+    <string name="candidates.image">Imágen de candidatos</string>
 </resources>

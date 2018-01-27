@@ -12,6 +12,7 @@ import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 object CandidatesContract {
     interface View: IView {
         fun showCandidatesList(list: List<Profile>)
+        fun setTitle()
     }
 
     interface Presenter: IPresenter<View> {

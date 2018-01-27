@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp.utils.views
 
 import android.app.Activity
+import android.support.annotation.StringRes
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 
 /**
@@ -10,5 +11,6 @@ import eleccionmp.redciudadana.org.eleccionmp.MainView
 interface ActivityView {
     fun showLoading()
     fun hideLoading()
+    fun setTitle(@StringRes title: Int)
 
 }

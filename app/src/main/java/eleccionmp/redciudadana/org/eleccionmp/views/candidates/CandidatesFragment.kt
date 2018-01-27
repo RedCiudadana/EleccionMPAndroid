@@ -8,6 +8,7 @@ import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BaseFragment
+import kotlinx.android.synthetic.main.fragment_candidates.*
 
 /**
  * Created by javier on 1/23/18.
@@ -22,7 +23,18 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
         return inflater?.inflate(R.layout.fragment_candidates, container, false)
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        candidates_list.adapter = CandidateListAdapter(context, null)
+    }
+
+    override fun setTitle() {
+        mActivityView?.setTitle(R.string.candidates_title)
+    }
+
     override fun showCandidatesList(list: List<Profile>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val adapter = candidates_list.adapter as CandidateListAdapter
+        adapter.candidateList = list
+        adapter.notifyDataSetChanged()
     }
 }

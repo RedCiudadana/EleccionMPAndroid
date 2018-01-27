@@ -3,6 +3,7 @@ package eleccionmp.redciudadana.org.eleccionmp
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -97,11 +98,6 @@ class MainActivity : AppCompatActivity(), MainView {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun showMainMenu() {
-        val fragment = MainMenuFragment()
-        changeFragment(fragment, false);
-    }
-
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction = supportFragmentManager
                 .beginTransaction()
@@ -113,6 +109,17 @@ class MainActivity : AppCompatActivity(), MainView {
         drawer_layout.closeDrawer(Gravity.START)
 
     }
+
+    override fun setTitle(@StringRes title: Int) {
+        toolbar.setTitle(title)
+    }
+
+    override fun showMainMenu() {
+        val fragment = MainMenuFragment()
+        changeFragment(fragment, false);
+    }
+
+
 
     override fun showLoading() {
         progress.visibility = View.VISIBLE
