@@ -26,10 +26,10 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 class CandidateListAdapter(private val context: Context, candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
 
     var candidateList: List<Profile>? = candidateList
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.candidate_list_item, parent, false)
