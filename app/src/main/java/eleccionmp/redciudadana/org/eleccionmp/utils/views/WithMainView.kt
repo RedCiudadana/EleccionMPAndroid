@@ -12,5 +12,4 @@ interface ActivityView {
     fun showLoading()
     fun hideLoading()
     fun setTitle(@StringRes title: Int)
-
 }

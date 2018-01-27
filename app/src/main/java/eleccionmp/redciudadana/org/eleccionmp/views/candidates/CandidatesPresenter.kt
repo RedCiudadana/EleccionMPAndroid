@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidates
 
 import android.util.Log
+import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.http.api
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BasePresenter
@@ -17,11 +18,12 @@ private const val TAG = "Candidates Presenter"
 class CandidatesPresenter : BasePresenter<CandidatesContract.View>(), CandidatesContract.Presenter {
 
     override fun onViewCreated() {
+        mView?.setTitle()
         mView?.showLoading()
         val callResponse = api.getProfiles()
         callResponse.enqueue(object : Callback<List<Profile>> {
             override fun onFailure(call: Call<List<Profile>>?, t: Throwable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                mView?.showError(R.string.errors_could_not_load)
             }
 
             override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
