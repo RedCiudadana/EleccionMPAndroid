@@ -1,9 +1,13 @@
 package eleccionmp.redciudadana.org.eleccionmp.http
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 /**
  * Created by javier on 1/15/18.
  */
 
+@Parcelize
 data class Profile(
         val id: String?,
         val nombre: String?,
@@ -31,5 +35,5 @@ data class Profile(
         val telefono: String?,
         val direccion: String?,
         val web: String
-)
+) : Parcelable
 

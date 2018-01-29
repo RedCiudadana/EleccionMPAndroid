@@ -21,9 +21,15 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         get() = view.candidate_item_image
     val candidateText: TextView
         get() = view.candidate_item_text
+
+    var onClickListener: View.OnClickListener? = null
+
 }
 
-class CandidateListAdapter(private val context: Context, candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
+class CandidateListAdapter(
+        private val context: Context,
+        private val candidateView: CandidatesContract.View,
+        candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
 
     var candidateList: List<Profile>? = candidateList
         set(value) {
@@ -45,6 +51,9 @@ class CandidateListAdapter(private val context: Context, candidateList: List<Pro
         if (holder != null && candidate != null) {
             Picasso.with(context).load(candidate.fotoUrl).into(holder.candidateImage)
             holder.candidateText.text = candidate.nombre
+            holder.onClickListener = View.OnClickListener {
+                candidateView.onCandidateSelected(candidate)
+            }
         }
     }
 

@@ -13,9 +13,11 @@ object CandidatesContract {
     interface View: IView {
         fun showCandidatesList(list: List<Profile>)
         fun setTitle()
+        fun showCandidate(profile: Profile)
+        fun onCandidateSelected(profile: Profile)
     }
 
     interface Presenter: IPresenter<View> {
-
+        fun onCandidateSelected(profile: Profile)
     }
 }

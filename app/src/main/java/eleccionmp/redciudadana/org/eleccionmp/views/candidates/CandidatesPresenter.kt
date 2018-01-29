@@ -36,4 +36,7 @@ class CandidatesPresenter : BasePresenter<CandidatesContract.View>(), Candidates
         })
     }
 
+    override fun onCandidateSelected(profile: Profile) {
+        mView?.showCandidate(profile)
+    }
 }

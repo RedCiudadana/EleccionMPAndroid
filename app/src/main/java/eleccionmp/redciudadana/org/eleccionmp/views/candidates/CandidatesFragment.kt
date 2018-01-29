@@ -29,7 +29,7 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
         val mLayoutManager = LinearLayoutManager(context)
         candidates_list.setHasFixedSize(true)
         candidates_list.layoutManager = mLayoutManager
-        candidates_list.adapter = CandidateListAdapter(context, null)
+        candidates_list.adapter = CandidateListAdapter(context, this, null)
     }
 
     override fun setTitle() {
@@ -39,5 +39,13 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
     override fun showCandidatesList(list: List<Profile>) {
         val adapter = candidates_list.adapter as CandidateListAdapter
         adapter.candidateList = list
+    }
+
+    override fun onCandidateSelected(profile: Profile) {
+        mPresenter.onCandidateSelected(profile)
+    }
+
+    override fun showCandidate(profile: Profile) {
+        mActivityView?.showCandidate(profile)
     }
 }
