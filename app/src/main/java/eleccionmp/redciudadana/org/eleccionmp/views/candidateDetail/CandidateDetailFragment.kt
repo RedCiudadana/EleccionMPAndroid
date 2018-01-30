@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.picasso.Picasso
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BaseFragment
+import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 
 /**
  * Created by javier on 1/28/18.
@@ -21,6 +23,13 @@ class CandidateDetailFragment: BaseFragment<CandidateDetailContract.View, Candid
     }
 
     override fun showCandidate(profile: Profile) {
+        Picasso.with(context).load(profile.fotoUrl).into(candidate_photo)
+        if (profile.nombre != null) {
+            candidate_name.text = profile.nombre
+        }
+    }
 
+    override fun setTitle(title: String) {
+        mActivityView?.setTitle(title)
     }
 }

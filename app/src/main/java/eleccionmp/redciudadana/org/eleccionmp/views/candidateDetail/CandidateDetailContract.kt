@@ -1,5 +1,6 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail
 
+import android.support.annotation.StringRes
 import eleccionmp.redciudadana.org.eleccionmp.http.Profile
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IPresenter
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
@@ -11,6 +12,7 @@ import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 object CandidateDetailContract {
     interface View: IView {
         fun showCandidate(profile: Profile)
+        fun setTitle(title: String)
     }
 
     interface Presenter: IPresenter<View> {

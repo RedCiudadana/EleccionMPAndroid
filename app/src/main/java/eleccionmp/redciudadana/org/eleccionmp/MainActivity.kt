@@ -117,6 +117,10 @@ class MainActivity : AppCompatActivity(), MainView {
         toolbar.setTitle(title)
     }
 
+    override fun setTitle(title: String) {
+        toolbar.setTitle(title)
+    }
+
     override fun showMainMenu() {
         val fragment = MainMenuFragment()
         changeFragment(fragment, false);

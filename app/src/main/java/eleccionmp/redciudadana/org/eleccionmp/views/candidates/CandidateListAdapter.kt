@@ -23,6 +23,10 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         get() = view.candidate_item_text
 
     var onClickListener: View.OnClickListener? = null
+    set(value) {
+        field = value
+        view.setOnClickListener(field)
+    }
 
 }
 

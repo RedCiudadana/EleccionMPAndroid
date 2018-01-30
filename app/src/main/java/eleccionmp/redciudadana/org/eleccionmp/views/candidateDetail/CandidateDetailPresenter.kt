@@ -14,6 +14,9 @@ class CandidateDetailPresenter: BasePresenter<CandidateDetailContract.View>(), C
         val profile: Profile? = args?.getParcelable("profile")
         if (profile != null) {
             mView?.showCandidate(profile)
+            if (profile.nombre != null){
+                mView?.setTitle(profile.nombre)
+            }
         }
     }
 }
