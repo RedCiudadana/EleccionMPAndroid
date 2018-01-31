@@ -22,5 +22,8 @@
     <string name="candidates.title">Candidatos</string>
     <string name="candidates.image">Imágen de candidatos</string>
 
+    <!-- Candidate detail-->
+    <string name="candidate.imageDescription">Imágen del candidato</string>
+
 
 </resources>

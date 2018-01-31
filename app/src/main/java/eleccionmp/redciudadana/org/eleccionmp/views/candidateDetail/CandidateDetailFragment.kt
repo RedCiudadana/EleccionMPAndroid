@@ -22,6 +22,11 @@ class CandidateDetailFragment: BaseFragment<CandidateDetailContract.View, Candid
         return inflater?.inflate(R.layout.fragment_candidate_detail, container, false)
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        candidate_detail_pager.adapter = CandidateDetailPagerAdapter(activity.supportFragmentManager)
+    }
+
     override fun showCandidate(profile: Profile) {
         Picasso.with(context).load(profile.fotoUrl).into(candidate_photo)
         if (profile.nombre != null) {

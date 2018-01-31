@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun setTitle(title: String) {
-        toolbar.setTitle(title)
+        toolbar.title = title
     }
 
     override fun showMainMenu() {
