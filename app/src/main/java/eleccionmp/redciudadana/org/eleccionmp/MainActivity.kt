@@ -52,9 +52,9 @@ class MainActivity : AppCompatActivity(), MainView {
 
         drawer_layout.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
 
-        mDrawerToggle?.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
+        mDrawerToggle?.syncState()
         setDrawerNavigationListener()
     }
 

@@ -18,16 +18,19 @@ import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 class CandidateDetailFragment: BaseFragment<CandidateDetailContract.View, CandidateDetailContract.Presenter, MainView>(), CandidateDetailContract.View {
     override var mPresenter: CandidateDetailContract.Presenter = CandidateDetailPresenter()
 
+    var mCandidate: Profile? = null
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_candidate_detail, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        candidate_detail_pager.adapter = CandidateDetailPagerAdapter(activity.supportFragmentManager)
+        candidate_detail_pager.adapter = CandidateDetailPagerAdapter(activity.supportFragmentManager, context, mCandidate!!)
     }
 
     override fun showCandidate(profile: Profile) {
+        mCandidate = profile
         Picasso.with(context).load(profile.fotoUrl).into(candidate_photo)
         if (profile.nombre != null) {
             candidate_name.text = profile.nombre
