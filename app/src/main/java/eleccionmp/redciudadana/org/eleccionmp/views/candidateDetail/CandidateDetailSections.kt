@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import kotlinx.android.synthetic.main.candidate_biography.*
 
 /**
@@ -24,7 +24,7 @@ object CandidateDetailSections {
         override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             try {
-                val text: Profile = arguments.getParcelable(profileArgument)
+                val text: Models.Profile = arguments.getParcelable(profileArgument)
                 candidate_biography.text = text.biografia
 
             } catch (e: Exception) {

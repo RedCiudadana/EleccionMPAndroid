@@ -6,13 +6,13 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 
 /**
  * Created by javier on 1/30/18.
  */
 
-class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context: Context, val profile: Profile) : FragmentStatePagerAdapter(fragmentManager) {
+class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context: Context, val profile: Models.Profile) : FragmentStatePagerAdapter(fragmentManager) {
     override fun getItem(position: Int): Fragment {
         val args = Bundle()
         args.putParcelable(profileArgument, profile)

@@ -1,7 +1,6 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidates
 
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
-import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BasePresenter
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IPresenter
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 
@@ -11,13 +10,13 @@ import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 
 object CandidatesContract {
     interface View: IView {
-        fun showCandidatesList(list: List<Profile>)
+        fun showCandidatesList(list: List<Models.Profile>)
         fun setTitle()
-        fun showCandidate(profile: Profile)
-        fun onCandidateSelected(profile: Profile)
+        fun showCandidate(profile: Models.Profile)
+        fun onCandidateSelected(profile: Models.Profile)
     }
 
     interface Presenter: IPresenter<View> {
-        fun onCandidateSelected(profile: Profile)
+        fun onCandidateSelected(profile: Models.Profile)
     }
 }

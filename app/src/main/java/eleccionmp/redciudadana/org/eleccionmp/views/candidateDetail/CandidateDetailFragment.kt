@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BaseFragment
 import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 
@@ -15,10 +15,10 @@ import kotlinx.android.synthetic.main.fragment_candidate_detail.*
  * Created by javier on 1/28/18.
  */
 
-class CandidateDetailFragment: BaseFragment<CandidateDetailContract.View, CandidateDetailContract.Presenter, MainView>(), CandidateDetailContract.View {
+class CandidateDetailFragment : BaseFragment<CandidateDetailContract.View, CandidateDetailContract.Presenter, MainView>(), CandidateDetailContract.View {
     override var mPresenter: CandidateDetailContract.Presenter = CandidateDetailPresenter()
 
-    var mCandidate: Profile? = null
+    var mCandidate: Models.Profile? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_candidate_detail, container, false)
@@ -29,7 +29,7 @@ class CandidateDetailFragment: BaseFragment<CandidateDetailContract.View, Candid
         candidate_detail_pager.adapter = CandidateDetailPagerAdapter(activity.supportFragmentManager, context, mCandidate!!)
     }
 
-    override fun showCandidate(profile: Profile) {
+    override fun showCandidate(profile: Models.Profile) {
         mCandidate = profile
         Picasso.with(context).load(profile.fotoUrl).into(candidate_photo)
         if (profile.nombre != null) {

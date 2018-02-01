@@ -1,6 +1,6 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail
 
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BasePresenter
 
 /**
@@ -11,7 +11,7 @@ class CandidateDetailPresenter: BasePresenter<CandidateDetailContract.View>(), C
 
     override fun onViewCreated() {
         val args = mView?.getArguments()
-        val profile: Profile? = args?.getParcelable("profile")
+        val profile: Models.Profile? = args?.getParcelable("profile")
         if (profile != null) {
             mView?.showCandidate(profile)
             if (profile.nombre != null){

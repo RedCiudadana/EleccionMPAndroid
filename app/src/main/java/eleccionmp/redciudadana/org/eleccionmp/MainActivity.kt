@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.candidates.CandidatesFragment
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 interface MainView: ActivityView {
     fun showMainMenu()
     fun showCandidates()
-    fun showCandidate(profile: Profile)
+    fun showCandidate(profile: Models.Profile)
     fun showCommission()
     fun showElectionProcess()
     fun showNews()
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity(), MainView {
         changeFragment(fragment, true)
     }
 
-    override fun showCandidate(profile: Profile) {
+    override fun showCandidate(profile: Models.Profile) {
         val fragment = CandidateDetailFragment()
         val args = Bundle()
         args.putParcelable("profile", profile)

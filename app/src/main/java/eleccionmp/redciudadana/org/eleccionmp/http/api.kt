@@ -13,8 +13,10 @@ val BASE_URL = "https://rawgit.com/RedCiudadana/EleccionMP/master/public/static-
 
 interface IApi {
     @GET("perfil.json")
-    fun getProfiles() : Call<List<Profile>>
+    fun getProfiles() : Call<List<Models.Profile>>
 
+    @GET("postuladores-comision.json")
+    fun getCommission(): Call<List<Models.Profile>>
 
 }
 

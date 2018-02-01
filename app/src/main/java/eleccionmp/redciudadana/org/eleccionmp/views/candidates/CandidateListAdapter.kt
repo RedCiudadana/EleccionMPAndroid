@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import kotlinx.android.synthetic.main.candidate_list_item.view.*
 
 /**
@@ -33,9 +33,9 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 class CandidateListAdapter(
         private val context: Context,
         private val candidateView: CandidatesContract.View,
-        candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
+        candidateList: List<Models.Profile>?) : RecyclerView.Adapter<ViewHolder>() {
 
-    var candidateList: List<Profile>? = candidateList
+    var candidateList: List<Models.Profile>? = candidateList
         set(value) {
             field = value
             notifyDataSetChanged()
