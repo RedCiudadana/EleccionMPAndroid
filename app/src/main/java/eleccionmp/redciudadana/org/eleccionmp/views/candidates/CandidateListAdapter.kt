@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import kotlinx.android.synthetic.main.candidate_list_item.view.*
 
 /**
@@ -21,11 +21,21 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         get() = view.candidate_item_image
     val candidateText: TextView
         get() = view.candidate_item_text
+
+    var onClickListener: View.OnClickListener? = null
+    set(value) {
+        field = value
+        view.setOnClickListener(field)
+    }
+
 }
 
-class CandidateListAdapter(private val context: Context, candidateList: List<Profile>?) : RecyclerView.Adapter<ViewHolder>() {
+class CandidateListAdapter(
+        private val context: Context,
+        private val candidateView: CandidatesContract.View,
+        candidateList: List<Models.Profile>?) : RecyclerView.Adapter<ViewHolder>() {
 
-    var candidateList: List<Profile>? = candidateList
+    var candidateList: List<Models.Profile>? = candidateList
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -45,6 +55,9 @@ class CandidateListAdapter(private val context: Context, candidateList: List<Pro
         if (holder != null && candidate != null) {
             Picasso.with(context).load(candidate.fotoUrl).into(holder.candidateImage)
             holder.candidateText.text = candidate.nombre
+            holder.onClickListener = View.OnClickListener {
+                candidateView.onCandidateSelected(candidate)
+            }
         }
     }
 

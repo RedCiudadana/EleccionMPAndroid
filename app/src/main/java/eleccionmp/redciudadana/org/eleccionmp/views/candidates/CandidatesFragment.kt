@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import eleccionmp.redciudadana.org.eleccionmp.MainView
 import eleccionmp.redciudadana.org.eleccionmp.R
-import eleccionmp.redciudadana.org.eleccionmp.http.Profile
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.BaseFragment
 import kotlinx.android.synthetic.main.fragment_candidates.*
 
@@ -25,19 +25,27 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val mLayoutManager = LinearLayoutManager(context)
         candidates_list.setHasFixedSize(true)
         candidates_list.layoutManager = mLayoutManager
-        candidates_list.adapter = CandidateListAdapter(context, null)
+        candidates_list.adapter = CandidateListAdapter(context, this, null)
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun setTitle() {
         mActivityView?.setTitle(R.string.candidates_title)
     }
 
-    override fun showCandidatesList(list: List<Profile>) {
+    override fun showCandidatesList(list: List<Models.Profile>) {
         val adapter = candidates_list.adapter as CandidateListAdapter
         adapter.candidateList = list
+    }
+
+    override fun onCandidateSelected(profile: Models.Profile) {
+        mPresenter.onCandidateSelected(profile)
+    }
+
+    override fun showCandidate(profile: Models.Profile) {
+        mActivityView?.showCandidate(profile)
     }
 }

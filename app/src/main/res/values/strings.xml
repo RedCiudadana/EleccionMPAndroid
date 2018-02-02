@@ -21,4 +21,26 @@
     <!-- Candidates list -->
     <string name="candidates.title">Candidatos</string>
     <string name="candidates.image">Imágen de candidatos</string>
+
+    <!-- Candidate detail-->
+    <string name="candidate.imageDescription">Imágen del candidato</string>
+    <string name="candidate.biography">Biografía</string>
+    <string name="candidate.evaluation">Evaluación de candidatos</string>
+    <string name="candidate.results">Resultados de la evaluación</string>
+    <string name="candidate.path">Trayectoria</string>
+    <string name="candidate.ask">Pregúntale</string>
+
+    <string name="candidate.evaluation.academics">Aspectos académicos</string>
+    <string name="candidate.evaluation.professional">Aspectos profesionales</string>
+    <string name="candidate.evaluation.projection">Proyección humana</string>
+    <string name="candidate.evaluation.missing"></string>
+    <string name="candidate.evaluation.ethics">Cualidades éticas</string>
+    <string name="candidate.evaluation.ethics.approved">Aprobado</string>
+    <string name="candidate.evaluation.ethics.reproved">Reprobado</string>
+
+    <string name="candidate.fb">Facebook</string>
+    <string name="candidate.twitter">Twitter</string>
+    <string name="candidate.email">Email</string>
+
 </resources>
+

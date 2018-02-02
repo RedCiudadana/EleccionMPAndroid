@@ -10,7 +10,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
+import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.candidates.CandidatesFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 interface MainView: ActivityView {
     fun showMainMenu()
     fun showCandidates()
+    fun showCandidate(profile: Models.Profile)
     fun showCommission()
     fun showElectionProcess()
     fun showNews()
@@ -49,9 +52,9 @@ class MainActivity : AppCompatActivity(), MainView {
 
         drawer_layout.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
 
-        mDrawerToggle?.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
+        mDrawerToggle?.syncState()
         setDrawerNavigationListener()
     }
 
@@ -114,6 +117,10 @@ class MainActivity : AppCompatActivity(), MainView {
         toolbar.setTitle(title)
     }
 
+    override fun setTitle(title: String) {
+        toolbar.title = title
+    }
+
     override fun showMainMenu() {
         val fragment = MainMenuFragment()
         changeFragment(fragment, false);
@@ -131,6 +138,14 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun showCandidates() : Unit{
         val fragment = CandidatesFragment()
+        changeFragment(fragment, true)
+    }
+
+    override fun showCandidate(profile: Models.Profile) {
+        val fragment = CandidateDetailFragment()
+        val args = Bundle()
+        args.putParcelable("profile", profile)
+        fragment.arguments = args
         changeFragment(fragment, true)
     }
 

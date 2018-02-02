@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp.utils.mvp
 
 import android.content.Context
+import android.os.Bundle
 import android.support.annotation.StringRes
 
 /**
@@ -15,6 +16,7 @@ interface IPresenter<in V: IView> {
 
 interface IView {
     fun getContext(): Context
+    fun getArguments(): Bundle
     fun showLoading()
     fun hideLoading()
     fun showError(message: String)

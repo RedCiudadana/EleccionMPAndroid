@@ -48,6 +48,8 @@ abstract class BaseFragment<in V : IView, T : IPresenter<V>, A: ActivityView> : 
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+
+
     override fun onDestroyView() {
         mPresenter.detachView()
         super.onDestroyView()
