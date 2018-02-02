@@ -2,6 +2,7 @@ package eleccionmp.redciudadana.org.eleccionmp.http
 
 import android.os.Parcelable
 import android.util.Log
+import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,17 +35,24 @@ object Models {
             val experienciaProfesional: String?,
             val experienciaEnDH: String?,
             val resultadosEvaluacion: Int?,
-            val notaAreaEvaluada1: Int?,
-            val notaAreaEvaluada2: Int?,
-            val notaAreaEvaluada3: Int?,
-            val notaAreaEvaluada4: Int?,
+            @Json(name = "notaAreaEvaluada1")
+            val notaAspectosAcademicos: Int?,
+            @Json(name = "notaAreaEvaluada2")
+            val notaAspectosProfesionales: Int?,
+            @Json(name = "notaAreaEvaluada3")
+            val notaProyeccionHumana: Int?,
+            @Json(name = "notaAreaEvaluada4")
+            val notaCualidadesEticas: Int?,
             val sexo: String?,
             val estado: String?,
             val fb: String?,
             val tw: String?,
             val email: String?,
+            @Json(name = "fb-institucion")
             val fbInstitucion: String?,
+            @Json(name = "tw-institucion")
             val twInstitucion: String?,
+            @Json(name = "email-institucion")
             val emailInstitucion: String?,
             val fotoUrl: String?,
             val telefono: String?,
@@ -65,7 +73,7 @@ object Models {
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                     Log.d(TAG, response?.body().toString())
                     candidates = response?.body()
-                    if (callback!= null) callback(response?.body(), null)
+                    if (callback != null) callback(response?.body(), null)
                 }
 
             })
@@ -89,7 +97,6 @@ object Models {
             })
         }
     }
-
 
 
 }

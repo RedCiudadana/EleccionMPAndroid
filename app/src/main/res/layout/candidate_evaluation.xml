@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/Candidate.evaluationTitle"
+            android:text="@string/candidate.evaluation.academics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/note_academics"
+            style="@style/Candidate.evaluationScore"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/Candidate.evaluationTitle"
+            android:text="@string/candidate.evaluation.academics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/note_professional"
+            style="@style/Candidate.evaluationScore"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/Candidate.evaluationTitle"
+            android:text="@string/candidate.evaluation.academics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/note_projection"
+            style="@style/Candidate.evaluationScore"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/Candidate.evaluationTitle"
+            android:text="@string/candidate.evaluation.academics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/note_ethics"
+            style="@style/Candidate.evaluationScore"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -25,11 +25,11 @@ class CandidatesFragment : BaseFragment<CandidatesContract.View, CandidatesContr
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val mLayoutManager = LinearLayoutManager(context)
         candidates_list.setHasFixedSize(true)
         candidates_list.layoutManager = mLayoutManager
         candidates_list.adapter = CandidateListAdapter(context, this, null)
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun setTitle() {

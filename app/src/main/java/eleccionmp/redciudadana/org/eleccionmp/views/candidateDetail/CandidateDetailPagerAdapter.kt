@@ -16,14 +16,14 @@ class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context:
     override fun getItem(position: Int): Fragment {
         val args = Bundle()
         args.putParcelable(profileArgument, profile)
-        when (position) {
-            0 -> {
-                val result = CandidateDetailSections.CandidateBiography()
-                result.arguments = args
-                return result
-            }
-            else -> return CandidateDetailSections.CandidateBiography()
+        val result: Fragment
+        result = when (position) {
+            0 -> CandidateDetailSections.CandidateBiography()
+            1 -> CandidateDetailSections.CandidateEvaluation()
+            else -> CandidateDetailSections.CandidateBiography()
         }
+        result.arguments = args
+        return result
     }
 
     override fun getCount(): Int {

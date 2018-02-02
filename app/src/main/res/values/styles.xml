@@ -36,5 +36,15 @@
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="Candidate" >
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="Candidate.evaluationTitle">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="Candidate.evaluationScore">
+        <item name="android:textSize">21sp</item>
+    </style>
 
 </resources>
