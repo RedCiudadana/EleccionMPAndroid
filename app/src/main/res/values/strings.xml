@@ -33,6 +33,7 @@
     <string name="candidate.evaluation.academics">Aspectos académicos</string>
     <string name="candidate.evaluation.professional">Aspectos profesionales</string>
     <string name="candidate.evaluation.projection">Proyección humana</string>
+    <string name="candidate.evaluation.missing"></string>
     <string name="candidate.evaluation.ethics">Cualidades éticas</string>
     <string name="candidate.evaluation.ethics.approved">Aprobado</string>
     <string name="candidate.evaluation.ethics.reproved">Reprobado</string>

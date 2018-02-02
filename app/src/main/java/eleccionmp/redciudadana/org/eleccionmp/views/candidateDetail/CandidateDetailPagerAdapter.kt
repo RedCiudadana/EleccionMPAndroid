@@ -20,6 +20,7 @@ class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context:
         result = when (position) {
             0 -> CandidateDetailSections.CandidateBiography()
             1 -> CandidateDetailSections.CandidateEvaluation()
+            2 -> CandidateDetailSections.CandidateChart()
             else -> CandidateDetailSections.CandidateBiography()
         }
         result.arguments = args
