@@ -38,4 +38,9 @@
     <string name="candidate.evaluation.ethics.approved">Aprobado</string>
     <string name="candidate.evaluation.ethics.reproved">Reprobado</string>
 
+    <string name="candidate.fb">Facebook</string>
+    <string name="candidate.twitter">Twitter</string>
+    <string name="candidate.email">Email</string>
+
 </resources>
+
