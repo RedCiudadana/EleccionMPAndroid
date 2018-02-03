@@ -45,5 +45,15 @@
     <!-- Commission -->
     <string name="commission.title">Comisión de postulación</string>
 
+    <!-- Contact us -->
+    <string name="contact_us.message">Mensaje</string>
+    <string name="contact_us.name">Nombre</string>
+    <string name="contact_us.send">Enviar</string>
+    <string name="contact_us.email">info@redciudadana.org</string>
+
+    <!-- twitter -->
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">L2AW4kZkebO9MY6uV01B9AOG7</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">CJTtPJtbcaDqCqe6x4yB7llWQdxRT8PzIek9dPS3fwy2dRROAO</string>
+
 </resources>
 

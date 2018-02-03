@@ -16,7 +16,9 @@ import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDet
 import eleccionmp.redciudadana.org.eleccionmp.views.candidates.CandidatesFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.commission.CommissionFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.commissionPerson.CommissionPersonFragment
+import eleccionmp.redciudadana.org.eleccionmp.views.contactUs.ContactsUsFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
+import eleccionmp.redciudadana.org.eleccionmp.views.news.NewsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 interface MainView: ActivityView {
@@ -170,10 +172,12 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showNews() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val fragment = NewsFragment()
+        changeFragment(fragment, true)
     }
 
     override fun showContact() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val fragment = ContactsUsFragment()
+        changeFragment(fragment, true)
     }
 }
