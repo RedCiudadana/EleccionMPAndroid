@@ -42,5 +42,8 @@
     <string name="candidate.twitter">Twitter</string>
     <string name="candidate.email">Email</string>
 
+    <!-- Commission -->
+    <string name="commission.title">Comisión de postulación</string>
+
 </resources>
 

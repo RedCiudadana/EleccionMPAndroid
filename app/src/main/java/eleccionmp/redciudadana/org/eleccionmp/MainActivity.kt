@@ -14,6 +14,8 @@ import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.candidates.CandidatesFragment
+import eleccionmp.redciudadana.org.eleccionmp.views.commission.CommissionFragment
+import eleccionmp.redciudadana.org.eleccionmp.views.commissionPerson.CommissionPersonFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +24,7 @@ interface MainView: ActivityView {
     fun showCandidates()
     fun showCandidate(profile: Models.Profile)
     fun showCommission()
+    fun showCommissionPerson(profile: Models.Profile)
     fun showElectionProcess()
     fun showNews()
     fun showContact()
@@ -150,7 +153,16 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showCommission() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val fragment = CommissionFragment()
+        changeFragment(fragment, true)
+    }
+
+    override fun showCommissionPerson(profile: Models.Profile) {
+        val fragment = CommissionPersonFragment()
+        val args = Bundle()
+        args.putParcelable("profile", profile)
+        fragment.arguments = args
+        changeFragment(fragment, true)
     }
 
     override fun showElectionProcess() {
