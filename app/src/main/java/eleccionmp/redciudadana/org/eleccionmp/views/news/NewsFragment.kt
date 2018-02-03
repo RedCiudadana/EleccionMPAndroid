@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.twitter.sdk.android.tweetui.SearchTimeline
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter
+import eleccionmp.redciudadana.org.eleccionmp.MainActivity
 import eleccionmp.redciudadana.org.eleccionmp.R
 import kotlinx.android.synthetic.main.fragment_news.*
 
@@ -19,15 +20,21 @@ class NewsFragment: Fragment() {
         return inflater?.inflate(R.layout.fragment_news, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setTitle(R.string.news_title)
+    }
+
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val timeline = SearchTimeline.Builder()
-                .query("Ministerio Publico Guatemala")
+                .query("EleccionMP")
+                .query("Eleccion MP")
+                .query("Fiscal general MP")
                 .build()
         val adapter = TweetTimelineListAdapter.Builder(context)
                 .setTimeline(timeline)
                 .build()
         news_list.adapter = adapter
-        adapter.notifyDataSetInvalidated()
     }
 }

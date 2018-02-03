@@ -11,7 +11,6 @@ import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 object CandidatesContract {
     interface View: IView {
         fun showCandidatesList(list: List<Models.Profile>)
-        fun setTitle()
         fun showCandidate(profile: Models.Profile)
         fun onCandidateSelected(profile: Models.Profile)
     }

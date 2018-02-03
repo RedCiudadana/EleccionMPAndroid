@@ -31,6 +31,10 @@ abstract class BaseFragment<in V : IView, T : IPresenter<V>, A: ActivityView> : 
         mPresenter.onViewCreated()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setTitle()
+    }
 
     override fun showLoading() {
         mActivityView?.showLoading()
