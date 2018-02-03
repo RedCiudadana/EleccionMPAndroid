@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Eleccion MP</string>
+    <string name="splash_text">&lt;p&gt;Conoce sobre la elección del Fiscal General del &lt;b&gt;Ministerio Público&lt;/b&gt;&lt;/p&gt;</string>
 
     <string name="errors.could_not_load">No se pudieron cargar los datos</string>
 
@@ -52,6 +53,7 @@
     <string name="contact_us.send">Enviar</string>
     <string name="contact_us.email">info@redciudadana.org</string>
 
+    <string name="election_title">Proceso de elección</string>
     <string name="news_title">Noticias</string>
 
     <!-- twitter -->

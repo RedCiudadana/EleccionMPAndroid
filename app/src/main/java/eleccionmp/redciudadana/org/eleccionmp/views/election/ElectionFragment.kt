@@ -21,6 +21,6 @@ class ElectionFragment: Fragment() {
     override fun onResume() {
         super.onResume()
         val activity = activity as MainActivity
-        activity.setTitle(R.string.contact_us_title)
+        activity.setTitle(R.string.election_title)
     }
 }
