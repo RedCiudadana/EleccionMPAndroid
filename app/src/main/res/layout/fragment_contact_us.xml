@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingLeft="35dp"
+    android:paddingRight="35dp"
+    android:paddingTop="40dp"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/input_from"
+        android:drawablePadding="10sp"
+        android:textColorHint="#888"
+        android:textColor="#fff"
+        android:hint="@string/contact_us.name"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/input_message"
+        android:drawablePadding="10sp"
+        android:textColorHint="#888"
+        android:textColor="#fff"
+        android:hint="@string/contact_us.message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/send_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/contact_us.send"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/candidate_item_image"
         android:contentDescription="@string/candidates.image"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         android:layout_width="150dp"
         android:layout_height="match_parent" />
     <TextView
