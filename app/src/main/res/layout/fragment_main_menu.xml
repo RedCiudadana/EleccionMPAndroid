@@ -13,6 +13,10 @@
             style="@style/MainMenu.text"
             android:text="@string/mainmenu.candidates" />
     </LinearLayout>
+    <View
+        android:background="@color/white_background"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <LinearLayout
         style="@style/MainMenu.item"
         android:id="@+id/option_commission">
@@ -24,6 +28,10 @@
             style="@style/MainMenu.text"
             android:text="@string/mainmenu.commission"/>
     </LinearLayout>
+    <View
+        android:background="@color/white_background"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <LinearLayout
         style="@style/MainMenu.item"
         android:id="@+id/option_election_process">
@@ -35,6 +43,10 @@
             style="@style/MainMenu.text"
             android:text="@string/mainmenu.election_process"/>
     </LinearLayout>
+    <View
+        android:background="@color/white_background"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <LinearLayout
         style="@style/MainMenu.item"
         android:id="@+id/option_news">

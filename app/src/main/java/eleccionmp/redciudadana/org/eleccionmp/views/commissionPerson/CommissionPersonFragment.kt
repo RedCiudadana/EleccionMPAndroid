@@ -42,4 +42,10 @@ class CommissionPersonFragment : BaseFragment<CommissionPersonContract.View, Com
         mActivityView?.setTitle(title)
     }
 
+    override fun setTitle() {
+        val nombre = mPerson?.nombre
+        if (nombre != null) {
+            mActivityView?.setTitle(nombre)
+        }
+    }
 }

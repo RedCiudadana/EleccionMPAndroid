@@ -21,4 +21,5 @@ interface IView {
     fun hideLoading()
     fun showError(message: String)
     fun showError(@StringRes messageRes: Int)
+    fun setTitle()
 }

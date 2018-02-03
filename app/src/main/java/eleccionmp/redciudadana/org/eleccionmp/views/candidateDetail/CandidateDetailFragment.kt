@@ -40,4 +40,11 @@ class CandidateDetailFragment : BaseFragment<CandidateDetailContract.View, Candi
     override fun setTitle(title: String) {
         mActivityView?.setTitle(title)
     }
+
+    override fun setTitle() {
+        val nombre = mCandidate?.nombre
+        if (nombre != null) {
+            mActivityView?.setTitle(nombre)
+        }
+    }
 }

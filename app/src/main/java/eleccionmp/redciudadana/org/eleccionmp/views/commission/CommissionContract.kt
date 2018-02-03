@@ -11,7 +11,6 @@ import eleccionmp.redciudadana.org.eleccionmp.utils.mvp.IView
 object CommissionContract {
     interface View: IView {
         fun showCommissionList(list: List<Models.Profile>)
-        fun setTitle()
         fun showCommisionPerson(profile: Models.Profile)
         fun onCommissionPersonSelected(profile: Models.Profile)
     }
