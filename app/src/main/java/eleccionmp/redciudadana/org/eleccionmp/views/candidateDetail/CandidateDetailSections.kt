@@ -61,6 +61,22 @@ object CandidateDetailSections {
         }
     }
 
+    class CandidateWorkPlan: Fragment() {
+        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            return inflater?.inflate(R.layout.candidate_biography, container, false)
+        }
+
+        override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            try {
+                val profile: Models.Profile = arguments.getParcelable(profileArgument)
+                candidate_biography.text = profile.planTrabajo
+            } catch (e: Exception) {
+                // do nothing
+            }
+        }
+    }
+
     class CandidateChart : Fragment() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             return inflater?.inflate(R.layout.candidate_evaluation_graph, container, false)
@@ -95,6 +111,8 @@ object CandidateDetailSections {
         }
 
     }
+
+
 
     class CandidatePath : Fragment() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -16,14 +16,12 @@ class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context:
     override fun getItem(position: Int): Fragment {
         val args = Bundle()
         args.putParcelable(profileArgument, profile)
-        val result: Fragment
-        result = when (position) {
+        val result: Fragment = when (position) {
             0 -> CandidateDetailSections.CandidateBiography()
-            1 -> CandidateDetailSections.CandidateEvaluation()
+            1 -> CandidateDetailSections.CandidateWorkPlan()
             2 -> CandidateDetailSections.CandidateChart()
             3 -> CandidateDetailSections.CandidatePath()
-            4 -> CandidateDetailSections.CandidateContact()
-            else -> CandidateDetailSections.CandidateBiography()
+            else -> CandidateDetailSections.CandidateContact()
         }
         result.arguments = args
         return result
@@ -34,12 +32,12 @@ class CandidateDetailPagerAdapter(fragmentManager: FragmentManager, val context:
     }
 
     override fun getPageTitle(position: Int): CharSequence {
-        when (position) {
-            0 -> return context.getString(R.string.candidate_biography)
-            1 -> return context.getString(R.string.candidate_evaluation)
-            2 -> return context.getString(R.string.candidate_results)
-            3 -> return context.getString(R.string.candidate_path)
-            else -> return context.getString(R.string.candidate_ask)
+        return when (position) {
+            0 -> context.getString(R.string.candidate_biography)
+            1 -> context.getString(R.string.candidate_work_plan)
+            2 -> context.getString(R.string.candidate_results)
+            3 -> context.getString(R.string.candidate_path)
+            else -> context.getString(R.string.candidate_ask)
         }
 
     }

@@ -19,6 +19,10 @@ class CommissionPersonPagerAdapter(fragmentManager: FragmentManager, val context
         args.putParcelable(profileArgument, profile)
         val result: Fragment = when (position) {
             0 -> CommissionPersonSections.PersonBiography()
+            1 -> CommissionPersonSections.PersonEvaluation()
+            2 -> CommissionPersonSections.PersonChart()
+            3 -> CommissionPersonSections.PersonPath()
+            4 -> CommissionPersonSections.PersonContact()
             else -> CommissionPersonSections.PersonBiography()
         }
         result.arguments = args

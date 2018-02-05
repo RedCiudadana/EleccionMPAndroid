@@ -26,6 +26,7 @@
     <!-- Candidate detail-->
     <string name="candidate.imageDescription">Imágen del candidato</string>
     <string name="candidate.biography">Biografía</string>
+    <string name="candidate.work_plan">Plan de trabajo</string>
     <string name="candidate.evaluation">Evaluación de candidatos</string>
     <string name="candidate.results">Resultados de la evaluación</string>
     <string name="candidate.path">Trayectoria</string>
