@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.commission
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class CommissionFragment : BaseFragment<CommissionContract.View, CommissionContr
         val mLayoutManager = LinearLayoutManager(context)
         candidates_list.setHasFixedSize(true)
         candidates_list.layoutManager = mLayoutManager
+        candidates_list.addItemDecoration(DividerItemDecoration(activity, mLayoutManager.orientation))
         candidates_list.adapter = CommissionListAdapter(context, this, null)
         super.onViewCreated(view, savedInstanceState)
     }

@@ -42,24 +42,40 @@ object CandidateDetailSections {
         }
     }
 
-    class CandidateEvaluation : Fragment() {
+    class CandidateAcademics : Fragment() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            return inflater?.inflate(R.layout.candidate_evaluation, container, false)
+            return inflater?.inflate(R.layout.candidate_biography, container, false)
         }
 
         override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             try {
-                val profile: Models.Profile = arguments.getParcelable(profileArgument)
-                note_academics.text = profile.notaAspectosAcademicos?.toString() ?: ""
-                note_professional.text = profile.notaAspectosProfesionales?.toString() ?: ""
-                note_projection.text = profile.notaProyeccionHumana?.toString() ?: ""
-                note_ethics.text = if (profile.notaCualidadesEticas ?: 0 > 0) getString(R.string.candidate_evaluation_ethics_approved) else getString(R.string.candidate_evaluation_ethics_reproved)
+                val text: Models.Profile = arguments.getParcelable(profileArgument)
+                candidate_biography.text = text.educacion
+
             } catch (e: Exception) {
                 // do nothing
             }
         }
     }
+
+    class CandidateProfessional : Fragment() {
+        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            return inflater?.inflate(R.layout.candidate_biography, container, false)
+        }
+
+        override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            try {
+                val text: Models.Profile = arguments.getParcelable(profileArgument)
+                candidate_biography.text = text.experienciaProfesional
+
+            } catch (e: Exception) {
+                // do nothing
+            }
+        }
+    }
+
 
     class CandidateWorkPlan: Fragment() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

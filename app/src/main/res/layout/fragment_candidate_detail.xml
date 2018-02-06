@@ -12,7 +12,7 @@
         android:contentDescription="@string/candidate.imageDescription"
         android:scaleType="centerInside"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="150dp" />
     <TextView
         android:id="@+id/candidate_name"
         android:textColor="@color/black"

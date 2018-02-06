@@ -18,6 +18,8 @@ interface IApi {
     @GET("postuladores-comision.json")
     fun getCommission(): Call<List<Models.Profile>>
 
+    @GET("evaluaciones.json")
+    fun getEvaluations(): Call<List<Models.Evaluations>>
 }
 
 

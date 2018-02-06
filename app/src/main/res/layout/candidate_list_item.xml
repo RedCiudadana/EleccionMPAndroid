@@ -9,6 +9,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
         android:id="@+id/candidate_item_image"
+        android:layout_margin="10dp"
         android:contentDescription="@string/candidates.image"
         android:scaleType="centerCrop"
         android:layout_width="150dp"
@@ -16,6 +17,7 @@
     <TextView
         android:id="@+id/candidate_item_text"
         android:textColor="@color/black"
+        android:padding="15dp"
         android:gravity="center_vertical|start"
         android:layout_width="0dp"
         android:layout_weight="1"

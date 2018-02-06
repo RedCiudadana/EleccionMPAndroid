@@ -11,11 +11,13 @@ import android.view.ViewGroup
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.squareup.picasso.Picasso
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.profileArgument
 import kotlinx.android.synthetic.main.candidate_biography.*
 import kotlinx.android.synthetic.main.candidate_contact.*
+import kotlinx.android.synthetic.main.candidate_evaluation.*
 import kotlinx.android.synthetic.main.candidate_evaluation_graph.*
 
 /**
@@ -42,14 +44,21 @@ object CommissionPersonSections {
 
     class PersonEvaluation: Fragment() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            return inflater?.inflate(R.layout.candidate_biography, container, false)
+            return inflater?.inflate(R.layout.candidate_evaluation, container, false)
         }
 
         override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             try {
-                val text: Models.Profile = arguments.getParcelable(profileArgument)
-                candidate_biography.text = text.biografia
+                val profile: Models.Profile = arguments.getParcelable(profileArgument)
+                Models.getEvaluationFor(profile) {
+                    if (it != null) {
+                        Picasso.with(context).load(it.perfil.fotoUrl).into(candidate_evaluation_image)
+                        candidate_evaluation_name.text = it.perfil.nombre
+                        candidate_evaluation_score.text = "%s / %s".format(it.resultado, 100)
+                    }
+                }
+
 
             } catch (e: Exception) {
                 // do nothing

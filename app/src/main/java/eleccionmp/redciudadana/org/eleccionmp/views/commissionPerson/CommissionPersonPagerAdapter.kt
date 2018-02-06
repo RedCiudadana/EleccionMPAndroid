@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
-import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailSections
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.profileArgument
 
 /**
@@ -19,28 +18,24 @@ class CommissionPersonPagerAdapter(fragmentManager: FragmentManager, val context
         args.putParcelable(profileArgument, profile)
         val result: Fragment = when (position) {
             0 -> CommissionPersonSections.PersonBiography()
-            1 -> CommissionPersonSections.PersonEvaluation()
-            2 -> CommissionPersonSections.PersonChart()
-            3 -> CommissionPersonSections.PersonPath()
-            4 -> CommissionPersonSections.PersonContact()
-            else -> CommissionPersonSections.PersonBiography()
+            1 -> CommissionPersonSections.PersonPath()
+            2 -> CommissionPersonSections.PersonEvaluation()
+            else -> CommissionPersonSections.PersonContact()
         }
         result.arguments = args
         return result
     }
 
     override fun getCount(): Int {
-        return 5
+        return 4
     }
 
     override fun getPageTitle(position: Int): CharSequence {
-        when (position) {
-            0 -> return context.getString(R.string.candidate_biography)
-            1 -> return context.getString(R.string.candidate_evaluation)
-            2 -> return context.getString(R.string.candidate_results)
-            3 -> return context.getString(R.string.candidate_path)
-            else -> return context.getString(R.string.candidate_ask)
+        return when (position) {
+            0 -> context.getString(R.string.candidate_biography)
+            1 -> context.getString(R.string.candidate_path)
+            2 -> context.getString(R.string.candidate_evaluation)
+            else -> context.getString(R.string.candidate_ask)
         }
-
     }
 }

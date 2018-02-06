@@ -18,6 +18,7 @@ object Models {
 
     var candidates: List<Profile>? = null
     var commission: List<Profile>? = null
+    var evaluations: List<Evaluations>? = null
 
     @Parcelize
     data class Profile(
@@ -60,6 +61,18 @@ object Models {
             val web: String
     ) : Parcelable
 
+    @Parcelize
+    data class Evaluations(
+            val postuladorId: String?,
+            val perfilId: String?,
+            val resultado: String?
+    ) : Parcelable
+
+    data class EvaluationResult(
+            val perfil: Profile,
+            val resultado: String
+    )
+
     fun getCandidates(callback: ((List<Profile>?, Throwable?) -> Unit)?) {
         if (candidates != null) {
             if (callback != null) callback(candidates, null)
@@ -96,6 +109,56 @@ object Models {
                 }
             })
         }
+    }
+
+    fun getEvaluations(callback: ((List<Evaluations>?, Throwable?) -> Unit)?) {
+        if (evaluations != null) {
+            if (callback != null) {
+                callback(evaluations, null)
+            }
+        } else {
+            val callResponse = api.getEvaluations()
+            callResponse.enqueue(object : Callback<List<Evaluations>> {
+                override fun onFailure(call: Call<List<Evaluations>>?, t: Throwable?) {
+                    if (callback != null) callback(null, t)
+                }
+
+                override fun onResponse(call: Call<List<Evaluations>>?, response: Response<List<Evaluations>>?) {
+                    evaluations = response?.body()
+                    if (callback != null) callback(evaluations, null)
+                }
+            })
+        }
+    }
+
+
+    fun getEvaluationFor(commissionPerson: Profile, callback: (EvaluationResult?) -> Unit) {
+        getCandidates { _, _ ->
+            getCommission { _, _ ->
+                getEvaluations { _, _ ->
+                    callback(findEvaluation(commissionPerson))
+                }
+            }
+        }
+    }
+
+    private fun findEvaluation(commissionPerson: Profile): EvaluationResult? {
+        val evaluations = evaluations!!
+        var profileId: String? = null
+        var score: String? = null
+        for (evaluation in evaluations) {
+            if (evaluation.postuladorId == commissionPerson.id) {
+                profileId = evaluation.perfilId
+                score = evaluation.resultado
+                break
+            }
+        }
+        for (profile in candidates!!) {
+            if (profile.id == profileId) {
+                return EvaluationResult(profile, score ?: "N/A")
+            }
+        }
+        return null
     }
 
 
