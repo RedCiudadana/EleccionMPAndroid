@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "594494566692",
+    "firebase_url": "https://eleccionmp-9135f.firebaseio.com",
+    "project_id": "eleccionmp-9135f",
+    "storage_bucket": "eleccionmp-9135f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594494566692:android:c31e0631d473a568",
+        "android_client_info": {
+          "package_name": "eleccionmp.redciudadana.org.eleccionmp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594494566692-7fk0eq84uegatkobbvvhji2o8tmkfjkv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eleccionmp.redciudadana.org.eleccionmp",
+            "certificate_hash": "badb61522e30452e41be0e4348bdfd24965a6108"
+          }
+        },
+        {
+          "client_id": "594494566692-t25q27kj043ev4n3anvgi97daa83iqpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5SYKlcpVWZ_xF9AG4DGcEh33Hje_qBog"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594494566692-t25q27kj043ev4n3anvgi97daa83iqpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
