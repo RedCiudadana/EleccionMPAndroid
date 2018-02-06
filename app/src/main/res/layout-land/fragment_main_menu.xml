@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <LinearLayout
+            style="@style/MainMenu.item"
+            android:id="@+id/option_candidates">
+            <ImageView
+                style="@style/MainMenu.icon"
+                android:src="@drawable/candidatos" />
+            <TextView
+                style="@style/MainMenu.text"
+                android:text="@string/mainmenu.candidates" />
+        </LinearLayout>
+        <View
+            android:background="@color/white_background"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            style="@style/MainMenu.item"
+            android:id="@+id/option_commission">
+            <ImageView
+                style="@style/MainMenu.icon"
+                android:src="@drawable/commission"
+                />
+            <TextView
+                style="@style/MainMenu.text"
+                android:text="@string/mainmenu.commission"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:background="@color/white_background"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <LinearLayout
+            style="@style/MainMenu.item"
+            android:id="@+id/option_election_process">
+            <ImageView
+                style="@style/MainMenu.icon"
+                android:src="@drawable/election"
+                />
+            <TextView
+                style="@style/MainMenu.text"
+                android:text="@string/mainmenu.election_process"/>
+        </LinearLayout>
+        <View
+            android:background="@color/white_background"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            style="@style/MainMenu.item"
+            android:id="@+id/option_news">
+            <ImageView
+                style="@style/MainMenu.icon"
+                android:src="@drawable/news"/>
+            <TextView
+                android:text="@string/mainmenu.news"
+                style="@style/MainMenu.text"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

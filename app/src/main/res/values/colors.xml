@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ffc80e</color>
-    <color name="colorPrimaryDark">#ffc80e</color>
+    <color name="colorPrimaryDark">#deba3b</color>
     <color name="colorAccent">#1b2b3a</color>
+    <color name="white">#ffffff</color>
+    <color name="main_menu_background">#1b2b3a</color>
+    <color name="white_background">#fafafa</color>
+    <color name="menu_item_background">#3ebdff</color>
+    <color name="black">#000</color>
+    <color name="tab_indicator">#75bbcc</color>
+    <color name="chart1">#FF5733</color>
+    <color name="chart2">#5DADE2</color>
+    <color name="chart3">#F39C12</color>
+    <color name="chart4">#EAEDED</color>
 </resources>

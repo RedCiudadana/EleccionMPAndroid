@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">Eleccion MP</string>
+    <string name="splash_text">&lt;p&gt;Conoce sobre la elección del Fiscal General del &lt;b&gt;Ministerio Público&lt;/b&gt;&lt;/p&gt;</string>
+
+    <string name="errors.could_not_load">No se pudieron cargar los datos</string>
+
+    <string name="main_menu_title">Elección MP</string>
+    <string name="mainmenu.candidates">Candidatos</string>
+    <string name="mainmenu.commission">Comisión de postulación</string>
+    <string name="mainmenu.election_process">Proceso de elección</string>
+    <string name="mainmenu.news">Últimas noticas</string>
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_close">Drawer close</string>
+
+    <!-- Menu options -->
+    <string name="menu.candidates">Candidatos</string>
+    <string name="menu.commission">Comisión de postulación</string>
+    <string name="menu.election">Proceso de elección</string>
+    <string name="menu.news">Noticias</string>
+    <string name="menu.contact">Contacto</string>
+
+    <!-- Candidates list -->
+    <string name="candidates.title">Candidatos</string>
+    <string name="candidates.image">Imágen de candidatos</string>
+
+    <!-- Candidate detail-->
+    <string name="candidate.imageDescription">Imágen del candidato</string>
+    <string name="candidate.biography">Biografía</string>
+    <string name="candidate.academics">Experiencia académica</string>
+    <string name="candidate.professional">Experiencia profesional</string>
+    <string name="candidate.work_plan">Plan de trabajo</string>
+    <string name="candidate.evaluation">Evaluación de candidatos</string>
+    <string name="candidate.results">Resultados de la evaluación</string>
+    <string name="candidate.path">Trayectoria</string>
+    <string name="candidate.ask">Pregúntale</string>
+
+    <string name="candidate.evaluation.academics">Aspectos académicos</string>
+    <string name="candidate.evaluation.professional">Aspectos profesionales</string>
+    <string name="candidate.evaluation.projection">Proyección humana</string>
+    <string name="candidate.evaluation.missing"></string>
+    <string name="candidate.evaluation.ethics">Cualidades éticas</string>
+    <string name="candidate.evaluation.ethics.approved">Aprobado</string>
+    <string name="candidate.evaluation.ethics.reproved">Reprobado</string>
+
+    <string name="candidate.fb">Facebook</string>
+    <string name="candidate.twitter">Twitter</string>
+    <string name="candidate.email">Email</string>
+
+    <!-- Commission -->
+    <string name="commission.title">Comisión de postulación</string>
+
+    <!-- Contact us -->
+    <string name="contact_us.title">Contacto</string>
+    <string name="contact_us.message">Mensaje</string>
+    <string name="contact_us.name">Nombre</string>
+    <string name="contact_us.send">Enviar</string>
+    <string name="contact_us.email">info@redciudadana.org</string>
+
+    <string name="election_title">Proceso de elección</string>
+    <string name="news_title">Noticias</string>
+
+    <!-- twitter -->
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">L2AW4kZkebO9MY6uV01B9AOG7</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">CJTtPJtbcaDqCqe6x4yB7llWQdxRT8PzIek9dPS3fwy2dRROAO</string>
+
 </resources>
+

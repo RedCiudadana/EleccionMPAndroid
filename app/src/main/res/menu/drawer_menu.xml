@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option_candidates"
+        android:title="@string/menu.candidates" />
+    <item
+        android:id="@+id/option_commission"
+        android:title="@string/menu.commission" />
+
+    <item
+        android:id="@+id/option_election_process"
+        android:title="@string/menu.election" />
+
+    <item
+        android:id="@+id/option_news"
+        android:title="@string/menu.news" />
+
+    <item
+        android:id="@+id/option_contact"
+        android:title="@string/menu.contact" />
+
+
+</menu>

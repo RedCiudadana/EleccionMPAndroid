@@ -1,94 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/main_menu_background"
     android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        style="@style/MainMenu.item"
+        android:id="@+id/option_candidates">
         <ImageView
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerInside"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.icon"
+            android:src="@drawable/candidatos" />
         <TextView
-            android:background="#00000000"
-            android:text="Eleccion MP"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.text"
+            android:text="@string/mainmenu.candidates" />
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
+    <View
+        android:background="@color/white_background"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="1dp"/>
+    <LinearLayout
+        style="@style/MainMenu.item"
+        android:id="@+id/option_commission">
         <ImageView
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerInside"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.icon"
+            android:src="@drawable/commission"
+            />
         <TextView
-            android:background="#00000000"
-            android:text="Opción 2"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.text"
+            android:text="@string/mainmenu.commission"/>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
+    <View
+        android:background="@color/white_background"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="1dp"/>
+    <LinearLayout
+        style="@style/MainMenu.item"
+        android:id="@+id/option_election_process">
         <ImageView
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerInside"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.icon"
+            android:src="@drawable/election"
+            />
         <TextView
-            android:background="#00000000"
-            android:text="Opción 3"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.text"
+            android:text="@string/mainmenu.election_process"/>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
+    <View
+        android:background="@color/white_background"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="1dp"/>
+    <LinearLayout
+        style="@style/MainMenu.item"
+        android:id="@+id/option_news">
         <ImageView
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerInside"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            style="@style/MainMenu.icon"
+            android:src="@drawable/news"/>
         <TextView
-            android:background="#00000000"
-            android:text="Opción 4"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:text="@string/mainmenu.news"
+            style="@style/MainMenu.text"/>
     </LinearLayout>
 </LinearLayout>

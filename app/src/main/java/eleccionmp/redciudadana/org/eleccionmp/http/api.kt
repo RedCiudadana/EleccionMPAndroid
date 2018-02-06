@@ -13,19 +13,19 @@ val BASE_URL = "https://rawgit.com/RedCiudadana/EleccionMP/master/public/static-
 
 interface IApi {
     @GET("perfil.json")
-    fun getProfiles() : Call<List<Profile>>
+    fun getProfiles() : Call<List<Models.Profile>>
 
+    @GET("postuladores-comision.json")
+    fun getCommission(): Call<List<Models.Profile>>
 
+    @GET("evaluaciones.json")
+    fun getEvaluations(): Call<List<Models.Evaluations>>
 }
 
 
-class Api {
-    val api: IApi
-    init {
-        val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build();
-        api = retrofit.create(IApi::class.java)
-    }
-}
+private val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
+
+var api = retrofit.create(IApi::class.java)
