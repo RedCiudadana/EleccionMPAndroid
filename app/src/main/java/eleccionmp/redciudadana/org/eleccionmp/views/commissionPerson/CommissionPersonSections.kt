@@ -59,7 +59,7 @@ object CommissionPersonSections {
             candidates_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             try {
                 val profile: Models.Profile = arguments.getParcelable(profileArgument)
-                Models.getEvaluationFor(profile) {
+                Models.getEvaluationFor(context, profile) {
                     mAdapter?.candidatesList = it
                 }
             } catch (e: Exception) {

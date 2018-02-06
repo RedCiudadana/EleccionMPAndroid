@@ -1,12 +1,17 @@
 package eleccionmp.redciudadana.org.eleccionmp.http
 
+import android.content.Context
 import android.os.Parcelable
 import android.util.Log
 import com.squareup.moshi.Json
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import eleccionmp.redciudadana.org.eleccionmp.utils.Storage
 import kotlinx.android.parcel.Parcelize
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 /**
  * Created by javier on 1/15/18.
@@ -73,19 +78,25 @@ object Models {
             val resultado: String
     )
 
-    fun getCandidates(callback: ((List<Profile>?, Throwable?) -> Unit)?) {
+    fun getCandidates(context: Context, callback: ((List<Profile>?, Throwable?) -> Unit)?) {
         if (candidates != null) {
             if (callback != null) callback(candidates, null)
         } else {
             val callResponse = api.getProfiles()
             callResponse.enqueue(object : Callback<List<Profile>> {
                 override fun onFailure(call: Call<List<Profile>>?, t: Throwable?) {
-                    if (callback != null) callback(null, t)
+                    val stored = ModelStorage.getCandidatesFromStorage(context)
+                    if (stored != null && callback != null) {
+                        callback(stored, null)
+                    } else if (callback != null) {
+                        callback(null, t)
+                    }
                 }
 
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                     Log.d(TAG, response?.body().toString())
                     candidates = response?.body()
+                    ModelStorage.saveCandidatesToStorage(context, candidates!!)
                     if (callback != null) callback(response?.body(), null)
                 }
 
@@ -93,25 +104,31 @@ object Models {
         }
     }
 
-    fun getCommission(callback: ((List<Profile>?, Throwable?) -> Unit)?) {
+    fun getCommission(context: Context, callback: ((List<Profile>?, Throwable?) -> Unit)?) {
         if (commission != null) {
             if (callback != null) callback(commission, null)
         } else {
             val callResponse = api.getCommission()
             callResponse.enqueue(object : Callback<List<Profile>> {
                 override fun onFailure(call: Call<List<Profile>>?, t: Throwable?) {
-                    if (callback != null) callback(null, t)
+                    val stored = ModelStorage.getCommissionFromStorage(context)
+                    if (stored != null && callback != null) {
+                        callback(stored, null)
+                    } else if (callback != null) {
+                        callback(null, t)
+                    }
                 }
 
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                     commission = response?.body()
+                    ModelStorage.saveCommissionToStorage(context, commission!!)
                     if (callback != null) callback(response?.body(), null)
                 }
             })
         }
     }
 
-    fun getEvaluations(callback: ((List<Evaluations>?, Throwable?) -> Unit)?) {
+    fun getEvaluations(context: Context, callback: ((List<Evaluations>?, Throwable?) -> Unit)?) {
         if (evaluations != null) {
             if (callback != null) {
                 callback(evaluations, null)
@@ -120,11 +137,17 @@ object Models {
             val callResponse = api.getEvaluations()
             callResponse.enqueue(object : Callback<List<Evaluations>> {
                 override fun onFailure(call: Call<List<Evaluations>>?, t: Throwable?) {
-                    if (callback != null) callback(null, t)
+                    val stored = ModelStorage.getEvaluationsFromStorage(context)
+                    if (stored != null && callback != null) {
+                        callback(stored, null)
+                    } else if (callback != null) {
+                        callback(null, t)
+                    }
                 }
 
                 override fun onResponse(call: Call<List<Evaluations>>?, response: Response<List<Evaluations>>?) {
                     evaluations = response?.body()
+                    ModelStorage.saveEvaluationsToStorage(context, evaluations!!)
                     if (callback != null) callback(evaluations, null)
                 }
             })
@@ -132,26 +155,26 @@ object Models {
     }
 
 
-    fun getEvaluationFor(commissionPerson: Profile, callback: (List<EvaluationResult>?) -> Unit) {
-        getCandidates { _, _ ->
-            getCommission { _, _ ->
-                getEvaluations { _, _ ->
-                    callback(findEvaluation(commissionPerson))
+    fun getEvaluationFor(context: Context, commissionPerson: Profile, callback: (List<EvaluationResult>?) -> Unit) {
+        getCandidates(context) { _, _ ->
+            getCommission(context) { _, _ ->
+                getEvaluations(context) { _, _ ->
+                    callback(findEvaluation(context, commissionPerson))
                 }
             }
         }
     }
 
-    private fun findEvaluation(commissionPerson: Profile): List<EvaluationResult>? {
-        val evaluations = evaluations!!
-        var profileIdList = HashMap<String, String>()
-        for (evaluation in evaluations) {
-            if (evaluation.postuladorId == commissionPerson.id) {
-                profileIdList.put(evaluation.perfilId!!, evaluation.resultado!!)
-            }
-        }
+    private fun findEvaluation(context: Context, commissionPerson: Profile): List<EvaluationResult>? {
+        val evaluations = evaluations ?: ModelStorage.getEvaluationsFromStorage(context) ?: return null
+        val candidates = candidates ?: ModelStorage.getCandidatesFromStorage(context) ?: return null
+
+        val profileIdList = HashMap<String, String>()
+        evaluations
+                .filter { it.postuladorId == commissionPerson.id }
+                .forEach { profileIdList.put(it.perfilId!!, it.resultado!!) }
         val resultList = ArrayList<EvaluationResult>()
-        for (profile in candidates!!) {
+        for (profile in candidates) {
             val score = profileIdList[profile.id]
             if (score != null) {
                 resultList.add(EvaluationResult(profile, score))

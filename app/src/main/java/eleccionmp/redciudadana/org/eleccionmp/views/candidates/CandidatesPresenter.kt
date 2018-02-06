@@ -13,7 +13,7 @@ class CandidatesPresenter : BasePresenter<CandidatesContract.View>(), Candidates
     override fun onViewCreated() {
         mView?.setTitle()
         mView?.showLoading()
-        Models.getCandidates { list: List<Models.Profile>?, throwable: Throwable? ->
+        Models.getCandidates(mView!!.getContext()) { list: List<Models.Profile>?, throwable: Throwable? ->
             if (throwable != null) {
                 mView?.showError(R.string.errors_could_not_load)
             } else {

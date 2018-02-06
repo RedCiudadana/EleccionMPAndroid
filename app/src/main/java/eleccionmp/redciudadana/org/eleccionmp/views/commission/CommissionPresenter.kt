@@ -14,7 +14,7 @@ class CommissionPresenter: BasePresenter<CommissionContract.View>(), CommissionC
     override fun onViewCreated() {
         mView?.setTitle()
         mView?.showLoading()
-        Models.getCommission { list, throwable ->
+        Models.getCommission(mView!!.getContext()) { list, throwable ->
             if (throwable != null) {
                 mView?.showError(R.string.errors_could_not_load)
             } else {
