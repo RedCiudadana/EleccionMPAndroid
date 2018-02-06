@@ -5,6 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.candidate_biography.*
 import kotlinx.android.synthetic.main.candidate_contact.*
 import kotlinx.android.synthetic.main.candidate_evaluation.*
 import kotlinx.android.synthetic.main.candidate_evaluation_graph.*
+import kotlinx.android.synthetic.main.fragment_candidates.*
 
 /**
  * Created by javier on 2/2/18.
@@ -43,23 +46,22 @@ object CommissionPersonSections {
     }
 
     class PersonEvaluation: Fragment() {
+        var mAdapter: CommissionPersonEvaluationsAdapter? = null
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            return inflater?.inflate(R.layout.candidate_evaluation, container, false)
+            return inflater?.inflate(R.layout.fragment_candidates, container, false)
         }
 
         override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
+            candidates_list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            mAdapter = CommissionPersonEvaluationsAdapter(context, null)
+            candidates_list.adapter = mAdapter
+            candidates_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             try {
                 val profile: Models.Profile = arguments.getParcelable(profileArgument)
                 Models.getEvaluationFor(profile) {
-                    if (it != null) {
-                        Picasso.with(context).load(it.perfil.fotoUrl).into(candidate_evaluation_image)
-                        candidate_evaluation_name.text = it.perfil.nombre
-                        candidate_evaluation_score.text = "%s / %s".format(it.resultado, 100)
-                    }
+                    mAdapter?.candidatesList = it
                 }
-
-
             } catch (e: Exception) {
                 // do nothing
             }

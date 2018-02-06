@@ -132,7 +132,7 @@ object Models {
     }
 
 
-    fun getEvaluationFor(commissionPerson: Profile, callback: (EvaluationResult?) -> Unit) {
+    fun getEvaluationFor(commissionPerson: Profile, callback: (List<EvaluationResult>?) -> Unit) {
         getCandidates { _, _ ->
             getCommission { _, _ ->
                 getEvaluations { _, _ ->
@@ -142,23 +142,22 @@ object Models {
         }
     }
 
-    private fun findEvaluation(commissionPerson: Profile): EvaluationResult? {
+    private fun findEvaluation(commissionPerson: Profile): List<EvaluationResult>? {
         val evaluations = evaluations!!
-        var profileId: String? = null
-        var score: String? = null
+        var profileIdList = HashMap<String, String>()
         for (evaluation in evaluations) {
             if (evaluation.postuladorId == commissionPerson.id) {
-                profileId = evaluation.perfilId
-                score = evaluation.resultado
-                break
+                profileIdList.put(evaluation.perfilId!!, evaluation.resultado!!)
             }
         }
+        val resultList = ArrayList<EvaluationResult>()
         for (profile in candidates!!) {
-            if (profile.id == profileId) {
-                return EvaluationResult(profile, score ?: "N/A")
+            val score = profileIdList[profile.id]
+            if (score != null) {
+                resultList.add(EvaluationResult(profile, score))
             }
         }
-        return null
+        return resultList
     }
 
 

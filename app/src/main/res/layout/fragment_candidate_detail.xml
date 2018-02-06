@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     android:background="@color/white_background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
         android:id="@+id/candidate_photo"
         android:paddingTop="10dp"
@@ -22,8 +21,8 @@
         android:layout_height="wrap_content" />
     <android.support.v4.view.ViewPager
         android:id="@+id/candidate_detail_pager"
-        android:layout_weight="1"
         android:layout_width="match_parent"
+        android:layout_weight="1"
         android:layout_height="0dp" >
         <android.support.v4.view.PagerTabStrip
             android:background="@color/tab_indicator"
@@ -34,6 +33,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </android.support.v4.view.ViewPager>
-
-
 </LinearLayout>
