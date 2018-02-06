@@ -12,8 +12,7 @@
 
         <ImageView
             android:id="@+id/candidate_photo"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:padding="10dp"
             android:contentDescription="@string/candidate.imageDescription"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
