@@ -12,6 +12,7 @@ object CommissionPersonContract {
     interface View: IView {
         fun showPerson(profile: Models.Profile)
         fun setTitle(title: String)
+        fun showCandidate(profile: Models.Profile)
     }
 
     interface Presenter: IPresenter<View> {

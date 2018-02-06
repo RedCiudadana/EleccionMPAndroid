@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.squareup.picasso.Picasso
+import eleccionmp.redciudadana.org.eleccionmp.MainActivity
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.profileArgument
@@ -47,14 +48,16 @@ object CommissionPersonSections {
 
     class PersonEvaluation: Fragment() {
         var mAdapter: CommissionPersonEvaluationsAdapter? = null
+        lateinit var mActivity: MainActivity
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            mActivity = activity as MainActivity
             return inflater?.inflate(R.layout.fragment_candidates, container, false)
         }
 
         override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             candidates_list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            mAdapter = CommissionPersonEvaluationsAdapter(context, null)
+            mAdapter = CommissionPersonEvaluationsAdapter(context, this, null)
             candidates_list.adapter = mAdapter
             candidates_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             try {

@@ -48,4 +48,8 @@ class CommissionPersonFragment : BaseFragment<CommissionPersonContract.View, Com
             mActivityView?.setTitle(nombre)
         }
     }
+
+    override fun showCandidate(profile: Models.Profile) {
+        mActivityView?.showCandidate(profile)
+    }
 }

@@ -12,7 +12,11 @@ import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.profileArgum
 /**
  * Created by javier on 2/2/18.
  */
-class CommissionPersonPagerAdapter(fragmentManager: FragmentManager, val context: Context, val profile: Models.Profile) : FragmentStatePagerAdapter(fragmentManager) {
+class CommissionPersonPagerAdapter(
+        fragmentManager: FragmentManager,
+        val context: Context,
+        val profile: Models.Profile) : FragmentStatePagerAdapter(fragmentManager) {
+
     override fun getItem(position: Int): Fragment {
         val args = Bundle()
         args.putParcelable(profileArgument, profile)

@@ -24,11 +24,17 @@ class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         get() = view.candidate_item_text
     val candidateScore: TextView
         get() = view.candidate_item_score
+    var onClickListener: View.OnClickListener? = null
+        set(value) {
+            field = value
+            view.setOnClickListener(field)
+        }
 }
 
 
 class CommissionPersonEvaluationsAdapter(
         private val context: Context,
+        private val fragment: CommissionPersonSections.PersonEvaluation,
         candidatesList: List<Models.EvaluationResult>?
 ) : RecyclerView.Adapter<ViewHolder>() {
 
@@ -53,6 +59,10 @@ class CommissionPersonEvaluationsAdapter(
             Picasso.with(context).load(candidate.perfil.fotoUrl).into(holder.candidateImage)
             holder.candidateText.text = candidate.perfil.nombre
             holder.candidateScore.text = candidate.resultado
+//            holder.onClickListener = View.OnClickListener {
+//                fragment.mActivity.showCandidate(candidate.perfil)
+//            }
+
         }
     }
 
