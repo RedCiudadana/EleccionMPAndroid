@@ -1,5 +1,6 @@
 package eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,11 +12,11 @@ import android.view.ViewGroup
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import eleccionmp.redciudadana.org.eleccionmp.MainActivity
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import kotlinx.android.synthetic.main.candidate_biography.*
 import kotlinx.android.synthetic.main.candidate_contact.*
-import kotlinx.android.synthetic.main.candidate_evaluation.*
 import kotlinx.android.synthetic.main.candidate_evaluation_graph.*
 
 /**
@@ -158,7 +159,7 @@ object CandidateDetailSections {
                 if (profile.fb != null) {
                     candidate_fb.setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(profile.fb))
-                        startActivity(intent)
+                        startIntent(intent)
                     }
                 } else {
                     candidate_fb.visibility = View.GONE
@@ -166,7 +167,7 @@ object CandidateDetailSections {
                 if (profile.tw != null) {
                     candidate_twitter.setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(profile.tw))
-                        startActivity(intent)
+                        startIntent(intent)
                     }
                 } else {
                     candidate_twitter.visibility = View.GONE
@@ -174,13 +175,23 @@ object CandidateDetailSections {
                 if (profile.email != null) {
                     candidate_email.setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:%s".format(profile.email)))
-                        startActivity(intent)
+                        startIntent(intent)
                     }
                 } else {
                     candidate_email.visibility = View.GONE
                 }
             } catch (e: Exception) {
-                // do nothing
+                val activity = getActivity() as MainActivity
+                activity.showError("Error", getString(R.string.errors_could_not_load))
+            }
+        }
+
+        private fun startIntent(intent: Intent) {
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                val activity = activity as MainActivity
+                activity.showError("Error", getString(R.string.errors_could_not_open_link))
             }
         }
     }

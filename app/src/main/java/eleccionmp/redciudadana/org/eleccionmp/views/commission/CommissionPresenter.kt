@@ -18,9 +18,9 @@ class CommissionPresenter: BasePresenter<CommissionContract.View>(), CommissionC
             if (throwable != null) {
                 mView?.showError(R.string.errors_could_not_load)
             } else {
-                mView?.hideLoading()
                 mView?.showCommissionList(list!!)
             }
+            mView?.hideLoading()
         }
     }
 

@@ -3,6 +3,7 @@
     <string name="splash_text">&lt;p&gt;Conoce sobre la elección del Fiscal General del &lt;b&gt;Ministerio Público&lt;/b&gt;&lt;/p&gt;</string>
 
     <string name="errors.could_not_load">No se pudieron cargar los datos</string>
+    <string name="errors.could_not_open_link">No se pudo abrir el enlace</string>
 
     <string name="main_menu_title">Elección MP</string>
     <string name="mainmenu.candidates">Candidatos</string>

@@ -17,9 +17,9 @@ class CandidatesPresenter : BasePresenter<CandidatesContract.View>(), Candidates
             if (throwable != null) {
                 mView?.showError(R.string.errors_could_not_load)
             } else {
-                mView?.hideLoading()
                 mView?.showCandidatesList(list!!)
             }
+            mView?.hideLoading()
         }
     }
 

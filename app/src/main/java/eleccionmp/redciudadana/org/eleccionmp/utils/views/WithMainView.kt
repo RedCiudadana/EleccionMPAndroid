@@ -13,4 +13,5 @@ interface ActivityView {
     fun hideLoading()
     fun setTitle(@StringRes title: Int)
     fun setTitle(title: String)
+    fun showError(title: String, message: String)
 }

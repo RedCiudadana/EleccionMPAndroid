@@ -45,17 +45,17 @@ abstract class BaseFragment<in V : IView, T : IPresenter<V>, A: ActivityView> : 
     }
 
     override fun showError(message: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mActivityView?.showError("Error", message)
     }
 
     override fun showError(messageRes: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mActivityView?.showError("Error", getString(messageRes))
     }
-
-
 
     override fun onDestroyView() {
         mPresenter.detachView()
         super.onDestroyView()
     }
+
+
 }

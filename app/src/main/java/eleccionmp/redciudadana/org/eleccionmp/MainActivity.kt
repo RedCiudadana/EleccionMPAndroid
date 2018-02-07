@@ -1,11 +1,13 @@
 package eleccionmp.redciudadana.org.eleccionmp
 
+import android.content.DialogInterface
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.MenuItem
@@ -181,5 +183,14 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun showContact() {
         val fragment = ContactsUsFragment()
         changeFragment(fragment, true)
+    }
+
+    override fun showError(title: String, message: String) {
+        AlertDialog.Builder(this, R.style.Base_ThemeOverlay_AppCompat_Dialog_Alert)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("Aceptar", { _, _ ->})
+                .show()
+
     }
 }
