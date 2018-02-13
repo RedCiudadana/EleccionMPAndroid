@@ -1,17 +1,18 @@
 package eleccionmp.redciudadana.org.eleccionmp
 
-import android.content.DialogInterface
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
+import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import com.mikepenz.iconics.context.IconicsLayoutInflater2
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
 import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailFragment
@@ -24,7 +25,7 @@ import eleccionmp.redciudadana.org.eleccionmp.views.mainmenu.MainMenuFragment
 import eleccionmp.redciudadana.org.eleccionmp.views.news.NewsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-interface MainView: ActivityView {
+interface MainView : ActivityView {
     fun showMainMenu()
     fun showCandidates()
     fun showCandidate(profile: Models.Profile)
@@ -39,8 +40,10 @@ private const val TAG: String = "MainActivity"
 
 class MainActivity : AppCompatActivity(), MainView {
     private var mDrawerToggle: ActionBarDrawerToggle? = null
+    private var firstAnimation = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        LayoutInflaterCompat.setFactory2(layoutInflater, IconicsLayoutInflater2(delegate))
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeDrawer()
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private fun initializeDrawer() {
         setSupportActionBar(toolbar)
-        mDrawerToggle = object: ActionBarDrawerToggle(
+        mDrawerToggle = object : ActionBarDrawerToggle(
                 this,
                 drawer_layout,
                 R.string.drawer_open,
@@ -112,8 +115,13 @@ class MainActivity : AppCompatActivity(), MainView {
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction = supportFragmentManager
                 .beginTransaction()
-                .setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit)
-                .replace(R.id.main_container, fragment)
+        if (firstAnimation) {
+            firstAnimation = false
+        } else {
+            transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit)
+        }
+        transaction.replace(R.id.main_container, fragment)
+
         if (addToBackStack) {
             transaction.addToBackStack(null)
         }
@@ -136,7 +144,6 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
 
-
     override fun showLoading() {
         progress.visibility = View.VISIBLE
     }
@@ -145,7 +152,7 @@ class MainActivity : AppCompatActivity(), MainView {
         progress.visibility = View.GONE
     }
 
-    override fun showCandidates() : Unit{
+    override fun showCandidates(): Unit {
         val fragment = CandidatesFragment()
         changeFragment(fragment, true)
     }
@@ -190,7 +197,7 @@ class MainActivity : AppCompatActivity(), MainView {
         AlertDialog.Builder(this, R.style.Base_ThemeOverlay_AppCompat_Dialog_Alert)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("Aceptar", { _, _ ->})
+                .setPositiveButton("Aceptar", { _, _ -> })
                 .show()
 
     }
