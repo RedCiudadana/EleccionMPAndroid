@@ -1,5 +1,6 @@
 package eleccionmp.redciudadana.org.eleccionmp.http
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Parcelable
 import android.util.Log
@@ -25,6 +26,7 @@ object Models {
     var commission: List<Profile>? = null
     var evaluations: List<Evaluations>? = null
 
+    @SuppressLint("ParcelCreator")
     @Parcelize
     data class Profile(
             val id: String?,
@@ -63,9 +65,10 @@ object Models {
             val fotoUrl: String?,
             val telefono: String?,
             val direccion: String?,
-            val web: String
+            val web: String?
     ) : Parcelable
 
+    @SuppressLint("ParcelCreator")
     @Parcelize
     data class Evaluations(
             val postuladorId: String?,
@@ -95,8 +98,11 @@ object Models {
 
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                     Log.d(TAG, response?.body().toString())
-                    candidates = response?.body()
-                    ModelStorage.saveCandidatesToStorage(context, candidates!!)
+                    val currentCandidates = response?.body()
+                    candidates = currentCandidates
+                    if (currentCandidates != null) {
+                        ModelStorage.saveCandidatesToStorage(context, currentCandidates)
+                    }
                     if (callback != null) callback(response?.body(), null)
                 }
 
@@ -120,8 +126,11 @@ object Models {
                 }
 
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
-                    commission = response?.body()
-                    ModelStorage.saveCommissionToStorage(context, commission!!)
+                    val currentCommission = response?.body()
+                    commission = currentCommission
+                    if (currentCommission != null) {
+                        ModelStorage.saveCommissionToStorage(context, currentCommission)
+                    }
                     if (callback != null) callback(response?.body(), null)
                 }
             })
@@ -146,8 +155,11 @@ object Models {
                 }
 
                 override fun onResponse(call: Call<List<Evaluations>>?, response: Response<List<Evaluations>>?) {
-                    evaluations = response?.body()
-                    ModelStorage.saveEvaluationsToStorage(context, evaluations!!)
+                    val currentEvaluations = response?.body()
+                    evaluations = currentEvaluations
+                    if (currentEvaluations != null) {
+                        ModelStorage.saveEvaluationsToStorage(context, currentEvaluations)
+                    }
                     if (callback != null) callback(evaluations, null)
                 }
             })

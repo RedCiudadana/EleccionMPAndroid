@@ -43,9 +43,9 @@
     <string name="candidate.evaluation.ethics.approved">Aprobado</string>
     <string name="candidate.evaluation.ethics.reproved">Reprobado</string>
 
-    <string name="candidate.fb">Facebook</string>
-    <string name="candidate.twitter">Twitter</string>
-    <string name="candidate.email">Email</string>
+    <string name="candidate.fb">{faw-facebook} Facebook</string>
+    <string name="candidate.twitter">{faw-twitter} Twitter</string>
+    <string name="candidate.email">{faw-envelope-open} Email</string>
 
     <!-- Commission -->
     <string name="commission.title">Comisión de postulación</string>
