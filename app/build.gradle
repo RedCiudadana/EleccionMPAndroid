@@ -16,8 +16,8 @@ android {
         applicationId "eleccionmp.redciudadana.org.eleccionmp"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 15
-        versionName "1.3"
+        versionCode 16
+        versionName "1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
