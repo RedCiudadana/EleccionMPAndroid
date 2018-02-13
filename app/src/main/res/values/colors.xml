@@ -13,4 +13,7 @@
     <color name="chart2">#5DADE2</color>
     <color name="chart3">#F39C12</color>
     <color name="chart4">#EAEDED</color>
+    <color name="fbBackground">#3949ab</color>
+    <color name="twitterBackground">#42a5f6</color>
+    <color name="emailBackground">#d2d3d5</color>
 </resources>

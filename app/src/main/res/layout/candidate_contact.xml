@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
         android:id="@+id/candidate_fb"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/fbBackground"
         android:text="@string/candidate.fb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/candidate_twitter"
+        app:backgroundTint="@color/twitterBackground"
+        android:textColor="@color/white"
         android:text="@string/candidate.twitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/candidate_email"
+        app:backgroundTint="@color/emailBackground"
         android:text="@string/candidate.email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
