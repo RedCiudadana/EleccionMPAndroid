@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity(), MainView {
     private fun changeFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction = supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit)
                 .replace(R.id.main_container, fragment)
         if (addToBackStack) {
             transaction.addToBackStack(null)
