@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity(), MainView {
         if (addToBackStack) {
             transaction.addToBackStack(null)
         }
-        transaction.commit()
+        transaction.commitAllowingStateLoss()
         drawer_layout.closeDrawer(Gravity.START)
 
     }
