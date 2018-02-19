@@ -42,15 +42,15 @@ object Models {
             val planTrabajo: String?,
             val experienciaProfesional: String?,
             val experienciaEnDH: String?,
-            val resultadosEvaluacion: Int?,
+            val resultadosEvaluacionString: String?,
             @Json(name = "notaAreaEvaluada1")
-            val notaAspectosAcademicos: Int?,
+            val notaAreaEvaluada1: String?,
             @Json(name = "notaAreaEvaluada2")
-            val notaAspectosProfesionales: Int?,
+            val notaAreaEvaluada2: String?,
             @Json(name = "notaAreaEvaluada3")
-            val notaProyeccionHumana: Int?,
+            val notaAreaEvaluada3: String?,
             @Json(name = "notaAreaEvaluada4")
-            val notaCualidadesEticas: Int?,
+            val notaAreaEvaluada4: String?,
             val sexo: String?,
             val estado: String?,
             val fb: String?,
@@ -66,7 +66,48 @@ object Models {
             val telefono: String?,
             val direccion: String?,
             val web: String?
-    ) : Parcelable
+    ) : Parcelable {
+        val resultadosEvaluacion: Int?
+        get() {
+            return try {
+                resultadosEvaluacionString?.toInt() ?: 0
+            } catch (e: Exception) {
+                null
+            }
+        }
+        val notaAspectosAcademicos: Int?
+            get() {
+                return try {
+                     notaAreaEvaluada1?.toInt() ?: 0
+                } catch (e: Exception) {
+                    null
+                }
+            }
+        val notaAspectosProfesionales: Int?
+            get() {
+                return try {
+                    notaAreaEvaluada2?.toInt() ?: 0
+                } catch (e: Exception) {
+                    null
+                }
+            }
+        val notaProyeccionHumana: Int?
+            get() {
+                return try {
+                    notaAreaEvaluada3?.toInt() ?: 0
+                } catch (e: Exception) {
+                    null
+                }
+            }
+        val notaCualidadesEticas: Int?
+            get() {
+                return try {
+                    notaAreaEvaluada4?.toInt() ?: 0
+                } catch (e: Exception) {
+                    null
+                }
+            }
+    }
 
     @SuppressLint("ParcelCreator")
     @Parcelize
