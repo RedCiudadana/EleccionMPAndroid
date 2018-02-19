@@ -9,9 +9,11 @@ import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import com.google.firebase.iid.FirebaseInstanceId
 import com.mikepenz.iconics.context.IconicsLayoutInflater2
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ActivityView
@@ -49,6 +51,13 @@ class MainActivity : AppCompatActivity(), MainView {
         initializeDrawer()
         if (savedInstanceState == null) {
             showMainMenu()
+        }
+        try {
+            val token = FirebaseInstanceId.getInstance().token
+            Log.d(TAG, "Firebase token: ${token}")
+        } catch (e: Exception) {
+            // do nothing
+            Log.d(TAG, "Firebase token not found")
         }
     }
 
@@ -125,7 +134,7 @@ class MainActivity : AppCompatActivity(), MainView {
         if (addToBackStack) {
             transaction.addToBackStack(null)
         }
-        transaction.commit()
+        transaction.commitAllowingStateLoss()
         drawer_layout.closeDrawer(Gravity.START)
 
     }
