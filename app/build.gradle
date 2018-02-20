@@ -21,8 +21,8 @@ android {
         applicationId "eleccionmp.redciudadana.org.eleccionmp"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 17
-        versionName "1.5"
+        versionCode 18
+        versionName "1.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [onesignal_app_id: "00f0c35c-243b-4dce-adf1-14fb7b0ae9d0",
                                 // Project number pulled from dashboard, local value is ignored.
