@@ -1,6 +1,7 @@
 package eleccionmp.redciudadana.org.eleccionmp
 
 import android.app.Application
+import android.util.Log
 import com.onesignal.OneSignal
 import com.twitter.sdk.android.core.Twitter
 
@@ -16,5 +17,8 @@ class MPApplication: Application() {
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init()
+        OneSignal.idsAvailable { userId, registrationId ->
+            Log.d("OneSignal", "User id: ${userId}. Registration id: ${registrationId}")
+        }
     }
 }
