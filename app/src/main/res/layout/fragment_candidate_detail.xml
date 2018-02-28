@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    android:background="@color/white_background"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    android:orientation="vertical">
+
     <ImageView
         android:id="@+id/candidate_photo"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:contentDescription="@string/candidate.imageDescription"
-        android:scaleType="centerInside"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="150dp"
+        android:contentDescription="@string/candidate.imageDescription"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:scaleType="centerInside" />
+
     <TextView
         android:id="@+id/candidate_name"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ExpandableListView
+        android:id="@+id/detail_list"
+        android:theme="@style/ThemeOverlay.AppCompat"
+        android:choiceMode="singleChoice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <android.support.v4.view.ViewPager
-        android:id="@+id/candidate_detail_pager"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp" >
-        <android.support.v4.view.PagerTabStrip
-            android:background="@color/tab_indicator"
-            android:layout_gravity="top"
-            android:textColor="@color/white"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </android.support.v4.view.ViewPager>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>

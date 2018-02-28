@@ -26,7 +26,7 @@ class CandidateDetailFragment : BaseFragment<CandidateDetailContract.View, Candi
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        candidate_detail_pager.adapter = CandidateDetailPagerAdapter(activity.supportFragmentManager, context, mCandidate!!)
+        detail_list.setAdapter(CandidateDetailListAdapter(activity, mCandidate!!))
     }
 
     override fun showCandidate(profile: Models.Profile) {

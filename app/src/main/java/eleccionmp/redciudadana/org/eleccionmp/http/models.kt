@@ -139,6 +139,7 @@ object Models {
 
                 override fun onResponse(call: Call<List<Profile>>?, response: Response<List<Profile>>?) {
                     Log.d(TAG, response?.body().toString())
+//                    val orderedResponse = response?.body()?.sortedBy { profile1 -> profile1.nombre }
                     val currentCandidates = response?.body()
                     candidates = currentCandidates
                     if (currentCandidates != null) {
