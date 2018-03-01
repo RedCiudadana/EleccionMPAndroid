@@ -12,6 +12,7 @@ import com.github.mikephil.charting.data.PieEntry
 import eleccionmp.redciudadana.org.eleccionmp.MainActivity
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
+import eleccionmp.redciudadana.org.eleccionmp.utils.views.ViewGroupHelper
 import kotlinx.android.synthetic.main.candidate_biography.view.*
 import kotlinx.android.synthetic.main.candidate_contact.view.*
 import kotlinx.android.synthetic.main.candidate_evaluation_graph.view.*
@@ -21,11 +22,6 @@ import kotlinx.android.synthetic.main.candidate_evaluation_graph.view.*
  */
 
 const val profileArgument = "profile"
-
-interface ViewGroupHelper {
-    fun getLayout(): Int
-    fun populateView(context: Context, view: View, arguments: Bundle)
-}
 
 object CandidateDetailSections {
     class CandidateBiography : ViewGroupHelper {

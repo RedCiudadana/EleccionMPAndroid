@@ -27,7 +27,7 @@ class CommissionPersonFragment : BaseFragment<CommissionPersonContract.View, Com
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        candidate_detail_pager.adapter = CommissionPersonPagerAdapter(activity.supportFragmentManager, context, mPerson!!)
+        detail_list.setAdapter(PersonDetailListAdapter(activity, mPerson!!))
     }
 
     override fun showPerson(profile: Models.Profile) {

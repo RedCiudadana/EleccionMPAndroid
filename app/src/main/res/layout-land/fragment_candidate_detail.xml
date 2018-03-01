@@ -25,18 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/candidate_detail_pager"
-        android:layout_weight="1"
+    <ExpandableListView
+        android:id="@+id/detail_list"
+        android:theme="@style/ThemeOverlay.AppCompat"
+        android:choiceMode="singleChoice"
         android:layout_width="0dp"
-        android:layout_height="match_parent" >
-        <android.support.v4.view.PagerTabStrip
-            android:background="@color/tab_indicator"
-            android:layout_gravity="top"
-            android:textColor="@color/white"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 </LinearLayout>

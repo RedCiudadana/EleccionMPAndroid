@@ -1,4 +1,4 @@
-package eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail
+package eleccionmp.redciudadana.org.eleccionmp.views.commissionPerson
 
 import android.content.Context
 import android.os.Bundle
@@ -10,17 +10,18 @@ import android.widget.TextView
 import eleccionmp.redciudadana.org.eleccionmp.R
 import eleccionmp.redciudadana.org.eleccionmp.http.Models
 import eleccionmp.redciudadana.org.eleccionmp.utils.views.ViewGroupHelper
+import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.CandidateDetailSections
+import eleccionmp.redciudadana.org.eleccionmp.views.candidateDetail.profileArgument
 
 /**
- * Created by javier on 2/27/18.
+ * Created by javier on 2/28/18.
  */
 
-class CandidateDetailListAdapter(val context: Context, val profile: Models.Profile) : BaseExpandableListAdapter() {
+class PersonDetailListAdapter(val context: Context, val profile: Models.Profile) : BaseExpandableListAdapter() {
 
     val groupTitles = arrayListOf<String>(
             context.getString(R.string.candidate_biography),
-            context.getString(R.string.candidate_academics),
-            context.getString(R.string.candidate_professional),
+            context.getString(R.string.candidate_path),
             context.getString(R.string.candidate_evaluation),
             context.getString(R.string.candidate_ask)
     )
@@ -52,11 +53,10 @@ class CandidateDetailListAdapter(val context: Context, val profile: Models.Profi
 
     override fun getChild(groupPosition: Int, childPosition: Int): Any {
         return when (groupPosition) {
-            0 -> CandidateDetailSections.CandidateBiography()
-            1 -> CandidateDetailSections.CandidateAcademics()
-            2 -> CandidateDetailSections.CandidateProfessional()
-            3 -> CandidateDetailSections.CandidateChart()
-            else -> CandidateDetailSections.CandidateContact()
+            0 -> CommissionPersonSections.PersonBiography()
+            1 -> CommissionPersonSections.PersonPath()
+            2 -> CommissionPersonSections.PersonEvaluation()
+            else -> CommissionPersonSections.PersonContact()
         }
     }
 
